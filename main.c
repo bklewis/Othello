@@ -1,4 +1,5 @@
 #include "main.h"
+#include "initialize.h"
 
 char board[8][8];
 

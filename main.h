@@ -3,8 +3,6 @@
 #include <string.h>
 #include <stdbool.h>
 
-//#include "initialize.h"
-
 #define N 8
 
 char board[8][8];
