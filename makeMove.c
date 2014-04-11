@@ -1,6 +1,7 @@
-#include "makeMoves.h"
+#include "makeMove.h"
 #include "main.h"
 
+char board[8][8] = ' ';
 
 void update(){
 }

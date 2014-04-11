@@ -1,5 +1,8 @@
 #include "main.h"
 #include "initialize.h"
+#include "io.h"
+#include "makeMove.h"
+
 
 char board[8][8];
 
