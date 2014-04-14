@@ -1,2 +1,2 @@
-void print();
-int getEntry();
+void print(void);
+void getEntry(void);
