@@ -22,7 +22,7 @@ void print() {
 }
 
 
-void getEntry() { /*there is a bug in getEntry() which I am working on resolving*/
+void getEntry() {
         printf("Please enter a row (A-H): ");
         scanf("%c", &row);
         printf("Please enter a column (1-8): ");
