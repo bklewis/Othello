@@ -4,6 +4,7 @@
 #include "main.h"
 #define N 8
 
+//all global variables 
 typedef enum  {X=1, O=2, M=3} token;
 typedef enum  {COUNTONLY,FLIPONLY} mode;
 int board [N][N]={ {0,0,0,0,0,0,0,0},   
@@ -18,6 +19,8 @@ int board [N][N]={ {0,0,0,0,0,0,0,0},
 int computeCount[N][N] = {0};                   
 int flips;
 
+
+/*
 void main(){
 	print();
 	moveExist(X);
@@ -26,8 +29,9 @@ void main(){
 	clear();
 	print();
 }
+*/
 
-//---------------------------
+//Functions
 
 int flip(int t,int nt, int x, int y, int mode){
 	flips=0;
