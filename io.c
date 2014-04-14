@@ -23,14 +23,26 @@ void print() {
 
 
 void getEntry() {
+	char x, tempRow;
+        int tempColumn, i;
+
+	char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+
         printf("Please enter a row (A-H): ");
-        scanf("%c", &row);
+        scanf("%c", &tempRow);
         printf("Please enter a column (1-8): ");
-        scanf("%d", &column);
-	char x;
+        scanf("%d", &tempColumn);
+
 	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
-        if (row < 'A' || row > 'H' || column < 1 || column > 8) {
+        if (tempRow < 'A' || tempRow > 'H' || tempColumn < 1 || tempColumn > 8) {
                 printf("\nInvalid entry.  Please enter new move.\n\n");
                 getEntry();
+        }
+
+	column = tempColumn - 1;
+        for (i = 0; i < 8; i++) {
+                if (tempRow == rows[i]) {
+                        row = i;
+                }
         }
 }
