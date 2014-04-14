@@ -18,7 +18,7 @@ void print() {
                 printf("\n");
         }
         printf("   -----------------\n\n");
-
+	printf("Player 1 Score: %d\nPlayer 2 Score: %d\n", p1score, p2score);
 }
 
 
