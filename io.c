@@ -23,11 +23,12 @@ void print() {
 
 
 void getEntry() { /*there is a bug in getEntry() which I am working on resolving*/
-	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
         printf("Please enter a row (A-H): ");
         scanf("%c", &row);
         printf("Please enter a column (1-8): ");
         scanf("%d", &column);
+	char x;
+	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
         if (row < 'A' || row > 'H' || column < 1 || column > 8) {
                 printf("\nInvalid entry.  Please enter new move.\n\n");
                 getEntry();
