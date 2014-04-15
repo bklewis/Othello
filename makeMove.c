@@ -22,6 +22,7 @@ int flips;
 
 /*
 void main(){
+	srand(time(0));
 	print();
 	moveExist(X);
 	print();
