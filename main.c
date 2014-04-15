@@ -1,5 +1,5 @@
 #include "main.h"
-#include "initialize.h"
+#include "init.h"
 //#include "io.h"
 //#include "makeMove.h"
 
