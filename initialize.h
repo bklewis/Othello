@@ -1,7 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
-
-//#include "main.h"
+#ifndef INITIALIZE_H
+#define INITIALIZE_H
 
 void initialize(void);
 

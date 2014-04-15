@@ -1,5 +1,12 @@
-include "main.h"
-include "initialize.h"
+#include "main.h"
+#include "initialize.h"
+
+/*int main(){
+
+	initialize();
+
+	return 0;
+}*/
 
 void initialize() {
         int i, j;
@@ -12,5 +19,6 @@ void initialize() {
         board[3][4] = 'O';
         board[4][3] = 'O';
         board[4][4] = 'X';
+	printf("initialize!\n");
 }
 

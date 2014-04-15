@@ -4,7 +4,7 @@
 #include <time.h>
 
 int randGen( int min,  int max){/*randge is [min,max]. problem with random, the sequence is determinstic... */
-	//srand(time)NULL))
+	srand((time(NULL));
 	double scaled = (double)rand()/RAND_MAX;
     return (max - min +1)*scaled + min;
 }

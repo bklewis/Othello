@@ -1,14 +1,21 @@
 #include "main.h"
 #include "initialize.h"
 #include "io.h"
-#include "makeMove.h"
+//#include "makeMove.h"
 
-
-//char board[8][8];
+//void initialize();
 
 int main(){
 
 	srand(time(NULL));
+
+	p1score = 2;
+
+	initialize();
+
+	print();
+
+	printf("main: %d\n", p1score);
 
 	printf("Othello!\n");
 	return 0;
