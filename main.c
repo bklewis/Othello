@@ -1,6 +1,6 @@
 #include "main.h"
-//#include "initialize.h"
-//#include "io.h"
+#include "initialize.h"
+#include "io.h"
 //#include "makeMove.h"
 
 

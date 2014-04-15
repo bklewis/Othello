@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <time.h>
 
-#define N 8
+//#define N 8
 
 char board[8][8];
 int legalMoves[64];
