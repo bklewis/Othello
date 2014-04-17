@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef IO_H
+#define IO_H
 
 void print(void);
 void getEntry(void);

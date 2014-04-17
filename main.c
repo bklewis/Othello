@@ -13,7 +13,9 @@ int main(){
 
 	initialize();
 
-	//print();
+	print();
+
+	getEntry();
 
 	printf("main: %d\n", p1score);
 

@@ -1,5 +1,5 @@
-#ifndef INITIALIZE_H
-#define INITIALIZE_H
+#ifndef INIT_H
+#define INIT_H
 
 void initialize(void);
 
