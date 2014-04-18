@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAKEMOVE_H
+#define MAKEMOVE_H
 
 char getTokenName(int t);
 void print();

@@ -7,18 +7,24 @@
 #include <stdbool.h>
 #include <time.h>
 
-//#define N 8
+#define N 8
 
-char board[8][8];
-int legalMoves[64];
-char flip[64];
+char board[N][N];
+int legalMoves[N*N];
+char flip[N*N];
 
 int p1score;
 int p2score;
 int row;
 int col;
 
+int computeCount[N][N] = {0};
+int flips;
+
 int pass;
 bool turn;
+
+typedef enum {X = 1, O = 2, M = 3} token;
+typedef enum {COUNTONLY,FLIPONLY} mode;
 
 #endif

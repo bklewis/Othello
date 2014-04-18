@@ -9,11 +9,13 @@ int main(){
 
 	srand(time(NULL));
 
+	printf("NEW!\n");
+
 	p1score = 2;
 
 	initialize();
 
-	print();
+	printIt();
 
 	getEntry();
 

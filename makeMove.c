@@ -7,7 +7,7 @@
 //all global variables 
 typedef enum  {X=1, O=2, M=3} token;
 typedef enum  {COUNTONLY,FLIPONLY} mode;
-int board [N][N]={ {0,0,0,0,0,0,0,0},   
+extern int board [N][N]={ {0,0,0,0,0,0,0,0},   
                    {0,0,0,0,0,0,0,0},  
                    {0,0,0,X,0,X,0,0},  
                    {0,0,0,O,O,0,0,0},   
@@ -16,8 +16,8 @@ int board [N][N]={ {0,0,0,0,0,0,0,0},
                    {0,0,0,0,0,0,0,0},   
                    {0,0,0,0,0,0,0,0} };
                    
-int computeCount[N][N] = {0};                   
-int flips;
+extern int computeCount[N][N] = {0};                   
+extern int flips;
 
 
 /*
