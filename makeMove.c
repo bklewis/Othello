@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "makeMove.h"
-#include "main.h"
+//#include "main.h"
 #define N 8
 
 //all global variables 
-/*
+
 typedef enum  {X=1, O=2, M=3} token;
 typedef enum  {COUNTONLY,FLIPONLY} mode;
 
@@ -20,7 +20,7 @@ extern int board [N][N]={ {0,0,0,0,0,0,0,0},
                    
 extern int computeCount[N][N] = {0};                   
 extern int flips;
-*/
+
 
 /*
 void main(){
