@@ -16,7 +16,7 @@ extern int board [N][N]={ {0,0,0,0,0,0,0,0},
                    {0,0,0,0,0,0,0,0},   
                    {0,0,0,0,0,0,0,0} };
                    
-extern int computeCount[N][N] = {0};                   
+//extern int computeCount[N][N] = {0};                   
 extern int flips;
 
 
@@ -27,7 +27,7 @@ void main(){
 	moveExist(X);
 	print();
 	computerMove(X,O);
-	//flip(X,O,6,0,FLIPONLY);
+	//flipIt(X,O,6,0,FLIPONLY);
 	//clear();
 	print();
 }
@@ -47,7 +47,7 @@ void computerMoveHelper(int t, int nt, int *max, int *count){ //returns max coun
 		for(int j=0; j<N; j++){
 			if(board[i][j]==M){
 				county++;
-				computeCount[i][j]=flip(t,nt,i,j,COUNTONLY);
+				computeCount[i][j]=flipIt(t,nt,i,j,COUNTONLY);
 				if(computeCount[i][j]>maxy) maxy =computeCount[i][j];
 			}//end if board
 		}//enf for int j
@@ -69,7 +69,7 @@ void computerMove(int t, int nt){
 					//printf("number is %d\n",number);
 					if(number==1){
 					    //printf("here\n");
-						flip(t,nt,i,j, FLIPONLY);
+						flipIt(t,nt,i,j, FLIPONLY);
 						tog=0;
 						number=0;
 						i=N;
@@ -87,7 +87,7 @@ void computerMove(int t, int nt){
 
 
 
-int flip(int t,int nt, int x, int y, int mode){
+int flipIt(int t,int nt, int x, int y, int mode){
 	flips=0;
 	if(board[x][y]!=M) {
 		printf("Input coordinates for M is not valid!\n");
@@ -106,7 +106,7 @@ int flip(int t,int nt, int x, int y, int mode){
 	//step >1 means there are opposite symbol, next I should check if last one is the same symbol as t.
 	if(step){
 		if(board[m][n]==t){
-			//start flip: set board[x][y] to be t; flip all the other until out of bound or there is none 
+			//start flipIt: set board[x][y] to be t; flipIt all the other until out of bound or there is none 
 			if(mode==FLIPONLY)board[x][y]=t;
 			m=x-1;n=y;
 			while(m>=0 && (board[m][n]==nt)){
