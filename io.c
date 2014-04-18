@@ -14,11 +14,13 @@ void scoreKeep() {
 	int i, j;
         for (i = 0; i < 8; i++) {
                 for (j = 0; j < 8; j++) {
-                        if (board[i][j] == 'X') {
-                                p1score++;
+                        if (board[i][j] == X) {
+                                printf("P1 SCORE!\n");
+				p1score++;
                         }
-                        else if (board[i][j] == 'O') {
-                                p2score++;
+                        else if (board[i][j] == O) {
+                                printf("P2 SCORE!\n");
+				p2score++;
                         }
 
                 }

@@ -9,12 +9,13 @@ int main(){
 
 	srand(time(NULL));
 
-	p1score = 2;
+	//p1score = 2;
 
 	printf("%d!\n", computeCount[0][0]);
 
 	initialize();
 
+	scoreKeep();
 	print();
 
 	//moveExist(X);
@@ -28,11 +29,14 @@ int main(){
 	printf("Othello!\n");
 
 	initialize();
-
+	
+	scoreKeep();
 	printIt();
 	moveExist(X);
+	scoreKeep();
 	print();
 	computerMove(X,O);
+	scoreKeep();
 	printIt();
 	print();
 	//flipIt(X,O,6,0,FLIPONLY);
