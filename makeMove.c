@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "makeMove.h"
+#include "main.h"
 #include <time.h>
 #define N 8
+
 /*
 typedef enum  {X=1, O=2, M=3} token;
 typedef enum  {COUNTONLY,FLIPONLY} mode;
+
 int board [N][N]={ {0,0,0,0,0,0,0,0},   
                    {0,0,0,0,0,0,0,0},  
                    {0,0,0,X,0,X,0,0},  
@@ -29,8 +32,8 @@ void main(){
 	//clear();
 	printIt();
 }
-
 */
+
 int randGen( int min,  int max){
 	double scaled = (double)rand()/RAND_MAX;
     return (max - min +1)*scaled + min;
@@ -385,7 +388,7 @@ int moveExist (int t){//t indicates wethher this is a X or a O
 				
 			}//End of Eight Direction
 		}
-		//printf("\n");
+		printf("WORKS\n");
 	}
 } 
 
