@@ -23,13 +23,13 @@ int main(){
 			if(turn){
 				getEntry();
 				printf("col: %d, row: %d\n", col, row);
-				flipIt(X, O, col, row, FLIPONLY);
+				flipIt(X, O, row, col, FLIPONLY);
 			}
 			else{
 				getEntry();
 				//computerMove(O, X);
 				printf("col: %d, row: %d\n", col, row);
-				flipIt(O, X, col, row, FLIPONLY);
+				flipIt(O, X, row, col, FLIPONLY);
 			}
 		}
 		else{
