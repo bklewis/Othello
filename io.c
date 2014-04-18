@@ -10,6 +10,22 @@ char getTokenNames(int t){
 	}
 }
 
+void scoreKeep() {
+	int i, j;
+        for (i = 0; i < 8; i++) {
+                for (j = 0; j < 8; j++) {
+                        if (board[i][j] == 'X') {
+                                p1score++;
+                        }
+                        else if (board[i][j] == 'O') {
+                                p2score++;
+                        }
+
+                }
+        }
+
+}
+
 void print() {
         char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         int i, j;
