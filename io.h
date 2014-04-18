@@ -1,7 +1,7 @@
 #ifndef IO_H
 #define IO_H
 
-void printIt(void);
+void print(void);
 void getEntry(void);
 
 #endif

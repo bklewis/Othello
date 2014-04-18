@@ -2,9 +2,7 @@
 #include "init.h"
 
 /*int main(){
-
 	initialize();
-
 	return 0;
 }*/
 

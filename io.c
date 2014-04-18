@@ -1,7 +1,7 @@
 #include "io.h"
 #include "main.h"
 
-void printIt() {
+void print() {
         char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         int i, j;
         printf("\n    1 2 3 4 5 6 7 8\n   -----------------\n");

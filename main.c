@@ -17,9 +17,11 @@ int main(){
     
 	initialize();
 
+	print();
+
 	//printIt();
 
-	//getEntry();
+	getEntry();
 
 	printf("main: %d\n", p1score);
 
