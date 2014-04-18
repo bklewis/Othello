@@ -12,13 +12,14 @@ char getTokenNames(int t){
 
 void scoreKeep() {
 	int i, j;
+	p1score = p2score = 0;
         for (i = 0; i < 8; i++) {
                 for (j = 0; j < 8; j++) {
-                        if (board[i][j] == X) {
+                        if (board[i][j] == X) {		//p1 is X
                                 printf("P1 SCORE!\n");
 				p1score++;
                         }
-                        else if (board[i][j] == O) {
+                        else if (board[i][j] == O) {	//p2 is O
                                 printf("P2 SCORE!\n");
 				p2score++;
                         }
