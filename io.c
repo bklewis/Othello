@@ -1,6 +1,15 @@
 #include "io.h"
 #include "main.h"
 
+char getTokenNames(int t){
+	switch(t){
+		case X: return 'X';
+		case O: return 'O';
+		case M: return 'M';
+		default: return '.';
+	}
+}
+
 void print() {
         char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         int i, j;
@@ -9,10 +18,10 @@ void print() {
                 printf("%c | ", rows[i]);
                 for (j = 0; j < 8; j++) {
                         if (j != 7) {
-                                printf("%c ", board[i][j]);
+                                printf("%c ", getTokenNames(board[i][j]));
                         }
                         else {
-                                printf("%c |", board[i][j]);
+                                printf("%c |",getTokenNames(board[i][j]));
                         }
                 }
                 printf("\n");

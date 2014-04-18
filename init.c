@@ -16,10 +16,10 @@ void initialize() {
                         computeCount[i][j]=0;
                 }
         }
-        board[3][3] = 'X';
-        board[3][4] = 'O';
-        board[4][3] = 'O';
-        board[4][4] = 'X';
+        board[3][3] = X;
+        board[3][4] = O;
+        board[4][3] = O;
+        board[4][4] = X;
 	printf("initialize!\n");
 }
 
