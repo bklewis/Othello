@@ -18,13 +18,13 @@ int p2score;
 int row;
 int col;
 
-int computeCount[N][N] = {0};
+//int computeCount[N][N] = {0};
 int flips;
 
 int pass;
 bool turn;
 
-typedef enum {X = 1, O = 2, M = 3} token;
-typedef enum {COUNTONLY,FLIPONLY} mode;
+//typedef enum {X = 1, O = 2, M = 3} token;
+//typedef enum {COUNTONLY,FLIPONLY} mode;
 
 #endif

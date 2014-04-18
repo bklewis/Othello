@@ -1,6 +1,6 @@
 #include "main.h"
 #include "init.h"
-//#include "io.h"
+#include "io.h"
 //#include "makeMove.h"
 
 //void initialize();
@@ -17,7 +17,7 @@ int main(){
 
 	//printIt();
 
-	getEntry();
+	//getEntry();
 
 	printf("main: %d\n", p1score);
 
