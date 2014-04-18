@@ -388,7 +388,7 @@ int moveExist (int t){//t indicates wethher this is a X or a O
 				
 			}//End of Eight Direction
 		}
-		printf("WORKS\n");
+		//printf("WORKS\n");
 	}
 } 
 

@@ -20,6 +20,5 @@ void initialize() {
         board[3][4] = O;
         board[4][3] = O;
         board[4][4] = X;
-	printf("initialize!\n");
 }
 
