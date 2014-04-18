@@ -1,7 +1,7 @@
 #include "main.h"
 #include "init.h"
 #include "io.h"
-//#include "makeMove.h"
+#include "makeMove.h"
 
 //void initialize();
 
@@ -12,7 +12,9 @@ int main(){
 	printf("NEW!\n");
 
 	p1score = 2;
-
+	
+	printf("%d!\n", computeCount[0][0]);
+    
 	initialize();
 
 	//printIt();
@@ -22,5 +24,14 @@ int main(){
 	printf("main: %d\n", p1score);
 
 	printf("Othello!\n");
+	
+	
+	//printIt();
+	//moveExist(X);
+//	print();
+	//computerMove(X,O);
+	//flipIt(X,O,6,0,FLIPONLY);
+	//clear();
+	//print();
 	return 0;
 }

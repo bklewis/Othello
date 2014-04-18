@@ -9,8 +9,10 @@
 
 #define N 8
 
+int computeCount[N][N];
 char board[N][N];
 int legalMoves[N*N];
+int flips;
 //char flip[N*N];  flip is not 
 
 int p1score;
@@ -18,13 +20,13 @@ int p2score;
 int row;
 int col;
 
-//int computeCount[N][N] = {0};
-int flips;
+
+
 
 int pass;
 bool turn;
 
-//typedef enum {X = 1, O = 2, M = 3} token;
-//typedef enum {COUNTONLY,FLIPONLY} mode;
+typedef enum {X = 1, O = 2, M = 3} token;
+typedef enum {COUNTONLY,FLIPONLY} mode;
 
 #endif

@@ -2,7 +2,7 @@
 #define MAKEMOVE_H
 
 char getTokenName(int t);
-void print();
+void printIt();
 void clear();
 int meCrawler(int t, int step, int m, int n);
 int moveExist (int t);

@@ -1,43 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "makeMove.h"
-//#include "main.h"
+#include <time.h>
 #define N 8
-
-//all global variables 
-
+/*
 typedef enum  {X=1, O=2, M=3} token;
 typedef enum  {COUNTONLY,FLIPONLY} mode;
-
-extern int board [N][N]={ {0,0,0,0,0,0,0,0},   
+int board [N][N]={ {0,0,0,0,0,0,0,0},   
                    {0,0,0,0,0,0,0,0},  
                    {0,0,0,X,0,X,0,0},  
                    {0,0,0,O,O,0,0,0},   
                    {0,0,0,0,O,0,0,0},   
                    {0,0,0,0,X,0,0,0},    
                    {0,0,0,0,0,0,0,0},   
-                   {0,0,0,0,0,0,0,0} };
+                   {0,0,0,0,0,0,0,0}};
                    
-extern int computeCount[N][N] = {0};                   
-extern int flips;
+int computeCount[N][N] = {0};                   
+int flips;
 
 
-/*
+
 void main(){
-	srand(time(0));
-	print();
+	printIt();
 	moveExist(X);
-	print();
+	printIt();
 	computerMove(X,O);
 	//flipIt(X,O,6,0,FLIPONLY);
 	//clear();
-	print();
+	printIt();
 }
-*/
-//Functions
 
-int randGen( int min,  int max){/*randge is [min,max]. problem with random, the sequence is determinstic... */
-	//srand(time)NULL))
+*/
+int randGen( int min,  int max){
 	double scaled = (double)rand()/RAND_MAX;
     return (max - min +1)*scaled + min;
 }
@@ -88,8 +82,7 @@ void computerMove(int t, int nt){
 
 
 
-
-int flipIt(int t,int nt, int x, int y, int mode){
+int flipIt(int t,int nt, int x, int y, int mode){ //RETURNS THE NUMBER OF FLIPS
 	flips=0;
 	if(board[x][y]!=M) {
 		printf("Input coordinates for M is not valid!\n");
@@ -268,7 +261,7 @@ char getTokenName(int t){
 	}
 }
 
-void print(){
+void printIt(){
 printf("0 1 2 3 4 5 6 7 \n");
 for(int i = 0; i<N ; i++){
 
@@ -395,10 +388,4 @@ int moveExist (int t){//t indicates wethher this is a X or a O
 		//printf("\n");
 	}
 } 
-
-
-
-
-	
-
 
