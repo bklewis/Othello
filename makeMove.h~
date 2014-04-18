@@ -1,3 +1,6 @@
+#ifndef MAKEMOVE_H
+#define MAKEMOVE_H
+
 char getTokenName(int t);
 void print();
 void clear();
@@ -16,3 +19,5 @@ void scoreKeep();
 void countingFiles();
 void computerMove();
 */
+
+#endif

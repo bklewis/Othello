@@ -11,7 +11,7 @@
 
 char board[N][N];
 int legalMoves[N*N];
-char flip[N*N];
+//char flip[N*N];  flip is not 
 
 int p1score;
 int p2score;

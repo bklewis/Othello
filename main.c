@@ -15,7 +15,7 @@ int main(){
 
 	initialize();
 
-	printIt();
+	//printIt();
 
 	getEntry();
 
