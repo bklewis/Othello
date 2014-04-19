@@ -11,16 +11,20 @@ int main(){
 	int turn = X;
 
 	initialize();
-	moveExist(turn);
-	scoreKeep();
-	print();
+	//moveExist(turn);
+	//scoreKeep();
+	//print();
 
 	int pass = 0;
 
 	do{
+		printf("TURN: %d\n", turn);
 		moveExist(turn);
+		scoreKeep();
+		print();
 		if(countMs()){
 			if(turn){
+				//computerMove(X, O);
 				getEntry();
 				printf("col: %d, row: %d\n", col, row);
 				flipIt(X, O, row, col, FLIPONLY);
@@ -35,11 +39,16 @@ int main(){
 		else{
 			pass++;
 		}
-		scoreKeep();
-		print();
+		//scoreKeep();
+		//print();
+		turn = !turn;
 	} while (pass < 2);
 
-	printf("GAME OVER!\n\n");
+	printf("\nGAME OVER!\n");
+	printf("Final Score: %d to %d\n", p1score, p2score);
+	if(p1score > p2score) printf("P1 Wins!\n\n");
+	else if (p2score > p1score) printf("P2 Wins!\n\n");
+	else printf("It's a tie!\n\n");
 	//scoreKeep();
 	//print();
 
