@@ -283,6 +283,7 @@ void clear(){
 for(int i = 0; i<N ; i++){
 		for( int j =0; j<N; j++){
 		if(board[i][j] == 3) board[i][j]=0;
+		computeCount[i][j]=0;
 		}
 	}
 }

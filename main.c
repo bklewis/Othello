@@ -17,6 +17,20 @@ int main(){
 
 	int pass = 0;
 
+	for(int i=0; i<30; i++){
+		moveExist(X);
+		print();
+		computerMove(X,O);
+	
+		moveExist(O);
+		print();
+		computerMove(O,X);
+		print();
+	}
+
+
+	
+    /* This is what we have for our old main.c
 	do{
 		printf("TURN: %d\n", turn);
 		moveExist(turn);
@@ -24,16 +38,16 @@ int main(){
 		print();
 		if(countMs()){
 			if(turn){
-				//computerMove(X, O);
-				getEntry();
-				printf("col: %d, row: %d\n", col, row);
-				flipIt(X, O, row, col, FLIPONLY);
+				computerMove(X, O);
+				//getEntry();
+				//printf("col: %d, row: %d\n", col, row);
+				//flipIt(X, O, row, col, FLIPONLY);
 			}
 			else{
-				getEntry();
-				//computerMove(O, X);
-				printf("col: %d, row: %d\n", col, row);
-				flipIt(O, X, row, col, FLIPONLY);
+				//getEntry();
+				computerMove(O, X);
+				//printf("col: %d, row: %d\n", col, row);
+				//flipIt(O, X, row, col, FLIPONLY);
 			}
 		}
 		else{
@@ -43,12 +57,17 @@ int main(){
 		//print();
 		turn = !turn;
 	} while (pass < 2);
-
+    
+    
 	printf("\nGAME OVER!\n");
 	printf("Final Score: %d to %d\n", p1score, p2score);
 	if(p1score > p2score) printf("P1 Wins!\n\n");
 	else if (p2score > p1score) printf("P2 Wins!\n\n");
 	else printf("It's a tie!\n\n");
+	//The above is our old tie.
+	
+
+	
 	//scoreKeep();
 	//print();
 
@@ -60,7 +79,7 @@ int main(){
 
 	//printf("main: %d\n", p1score);
 
-/*	printf("Othello!\n");
+	printf("Othello!\n");
 
 	initialize();
 	
