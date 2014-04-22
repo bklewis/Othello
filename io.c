@@ -88,4 +88,9 @@ void getEntry() {
                         row = i;
                 }
         }
+
+	if (board[row][col] != M) {
+		printf("%c%d is not a valid move.  Please enter a new move.\n", tempRow, tempColumn);
+		getEntry();
+	}
 }
