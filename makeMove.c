@@ -36,7 +36,7 @@ void main(){
 
 int randGen( int min,  int max){
 	double scaled = (double)rand()/RAND_MAX;
-    return (max - min +1)*scaled + min;
+	return (max - min +1)*scaled + min;
 }
 
 void computerMoveHelper(int t, int nt, int *max, int *count){ //returns max counts 
@@ -59,9 +59,9 @@ void computerMove(int t, int nt){
 	
 	int max=0,count=0;
 	computerMoveHelper(t,nt,&max,&count);
-    int number = randGen(1,count);
-    int tog=1;
-    while(tog && number >=1){
+	int number = randGen(1,count);
+	int tog=1;
+	while(tog && number >=1){
 		for(int i=0; i<N; i++){
 			for(int j=0; j<N; j++){
 				if(computeCount[i][j]==max){
@@ -77,8 +77,7 @@ void computerMove(int t, int nt){
 					number--;
 				}//if
 			}//for j
- 	    }//for i
-	  
+ 		}//for i
 	}//end while
 	clear();
 }//computerMove
@@ -115,7 +114,7 @@ int flipIt(int t,int nt, int x, int y, int mode){ //RETURNS THE NUMBER OF FLIPS
 		}
 	}//END_UP
 	
-    //DOWN
+	//DOWN
 	m=x+1;n=y;step=0;
 	while(m<N && (board[m][n]==nt)){ 
 		m++;
@@ -251,6 +250,7 @@ int flipIt(int t,int nt, int x, int y, int mode){ //RETURNS THE NUMBER OF FLIPS
 		}
 	}//END_DOWNRIGHT
 	//printf("flips is %d\n",flips);
+	clear();
 	return flips;
 }
  
@@ -265,35 +265,34 @@ char getTokenName(int t){
 }
 
 void printIt(){
-printf("0 1 2 3 4 5 6 7 \n");
-for(int i = 0; i<N ; i++){
+	printf("0 1 2 3 4 5 6 7 \n");
+	for(int i = 0; i<N ; i++){
 
 		for( int j =0; j<N; j++){
-		printf("%c ",getTokenName( board[i][j] ) );
-		
+			printf("%c ",getTokenName( board[i][j] ) );
 		}
 		printf("%d \n", i);
 	}
 	printf("\n\n");
-}	
+}
 
 
 void clear(){
 //printf("0 1 2 3 4 5 6 7 \n");
-for(int i = 0; i<N ; i++){
+	for(int i = 0; i<N ; i++){
 		for( int j =0; j<N; j++){
-		if(board[i][j] == 3) board[i][j]=0;
-		computeCount[i][j]=0;
+			if(board[i][j] == 3) board[i][j]=0;
+			computeCount[i][j]=0;
 		}
 	}
 }
 
 //move exist helper
 int meCrawler(int t, int step, int m, int n){
-    if( (step==1) && ((getTokenName(board[m][n]) == '.')||( getTokenName(board[m][n])  == 'M'))) return 1;
-    if(board[m][n]==t) return 1;
-    if( (step>1) && ((getTokenName(board[m][n]) == '.')||( getTokenName(board[m][n])  == 'M')) ){
-	    board[m][n]=3;
+	if( (step==1) && ((getTokenName(board[m][n]) == '.')||( getTokenName(board[m][n])  == 'M'))) return 1;
+	if(board[m][n]==t) return 1;
+	if( (step>1) && ((getTokenName(board[m][n]) == '.')||( getTokenName(board[m][n])  == 'M')) ){
+		board[m][n]=3;
 		return 1;
 	}
 	return 0;
@@ -304,7 +303,7 @@ int moveExist (int t){//t indicates wethher this is a X or a O
 		for( int j =0; j<N; j++){
 			if(getTokenName( board[i][j] ) == getTokenName(t)){
 				int m,n,step;
-				
+
 				//direction up
 				m=i-1;
 				step=1;

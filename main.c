@@ -19,27 +19,43 @@ int main(){
 
 	do{
 		printf("TURN: %d\n", turn);
+		clear();
 		moveExist(turn);
+		//clear();
 		scoreKeep();
+		printf("FIRST PRINT\n");
 		print();
 		if(countMs()){
 			if(turn){
-				computerMove(X, O);
+				printf("moveExist: X\n");
+				clear();
+				moveExist(X);
+				print();
+				//computerMove(X, O);
 				getEntry();
 				printf("col: %d, row: %d\n", col, row);
 				flipIt(X, O, row, col, FLIPONLY);
+				clear();
 			}
 			else{
+				printf("moveExist: O\n");
+				clear();
+				moveExist(O);
+				print();
 				getEntry();
-				computerMove(O, X);
+				//computerMove(O, X);
 				printf("col: %d, row: %d\n", col, row);
 				flipIt(O, X, row, col, FLIPONLY);
+				clear();
 			}
 		}
 		else{
 			pass++;
+			clear();
 		}
 		scoreKeep();
+		clear();
+		printf("SECOND PRINT\n");
 		print();
 		turn = !turn;
 	} while (pass < 2);
@@ -52,7 +68,7 @@ int main(){
 	else printf("It's a tie!\n\n");
 
 
-	printf("Othello!\n");
+	/*printf("Othello!\n");
 
 	initialize();
 	
@@ -63,7 +79,7 @@ int main(){
 	print();
 	computerMove(X,O);
 	scoreKeep();
-	printIt();
+	printIt();*/
 
 	//flipIt(X,O,6,0,FLIPONLY);
 	//clear();
