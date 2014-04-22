@@ -8,48 +8,47 @@ int main(){
 	srand(time(NULL));
 
 	printf("\n\nWelcome to Othello!\n\n");
+
 	int turn = X;
-
-	initialize();
-	//moveExist(turn);
-	//scoreKeep();
-	//print();
-
 	int pass = 0;
+	initialize();
+
 
 	do{
 		printf("TURN: %d\n", turn);
 		clear();
 		moveExist(turn);
-		//clear();
 		scoreKeep();
-		printf("FIRST PRINT\n");
-		print();
 		if(countMs()){
 			if(turn){
 				printf("moveExist: X\n");
 				clear();
 				moveExist(X);
+				printf("Internal print: X\n");
 				print();
 				//computerMove(X, O);
 				getEntry();
 				printf("col: %d, row: %d\n", col, row);
 				flipIt(X, O, row, col, FLIPONLY);
 				clear();
+				pass = 0;
 			}
 			else{
 				printf("moveExist: O\n");
 				clear();
 				moveExist(O);
+				printf("Internal print: O\n");
 				print();
 				getEntry();
 				//computerMove(O, X);
 				printf("col: %d, row: %d\n", col, row);
 				flipIt(O, X, row, col, FLIPONLY);
 				clear();
+				pass = 0;
 			}
 		}
 		else{
+			printf("\nNo Move Exists for %d.  You pass!\n\n", turn);
 			pass++;
 			clear();
 		}
