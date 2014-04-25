@@ -54,6 +54,7 @@ puts("\n\n*****************************\n\n");
 				print();
 				int vertical,horizontal;
 				puts("Enter vertical and honrizontal sepraated by space: ");
+				fgets(str,20,stdin);
 				sscanf(gets(str),"%d %d", &vertical, &horizontal);
 				printf("You moved verti is %d, honri is : %d\n", vertical,horizontal);
 				flipIt(X,O,vertical,horizontal,FLIPONLY);
