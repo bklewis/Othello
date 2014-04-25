@@ -1,1 +1,4 @@
-Hello, World!
+Rewrite moveExist, it should return how many M are there. 
+Edit main.c
+
+ComputerMove is not working (test the function first, then put it into main)

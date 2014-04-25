@@ -79,7 +79,7 @@ void computerMove(int t, int nt){
 			}//for j
  		}//for i
 	}//end while
-	clear();
+	//clear();
 }//computerMove
 
 
