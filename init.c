@@ -7,7 +7,11 @@
 }*/
 
 void initialize() {
-		flips=0;
+	p1score=0;
+	p2score=0;
+	
+	pass=0;
+	
 		//printf("flips is init : %d", flips);
         int i, j;
         for (i = 0; i < 8; i++) {

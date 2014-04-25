@@ -10,40 +10,8 @@ char getTokenNames(int t){
 	}
 }
 
-void scoreKeep() {
-	int i, j;
-	p1score = p2score = 0;
-        for (i = 0; i < 8; i++) {
-                for (j = 0; j < 8; j++) {
-                        if (board[i][j] == X) {		//p1 is X
-                                //printf("P1 SCORE!\n");
-				p1score++;
-                        }
-                        else if (board[i][j] == O) {	//p2 is O
-                                //printf("P2 SCORE!\n");
-				p2score++;
-                        }
 
-                }
-        }
-
-}
-
-int countMs() {
-        int i, j;
-        int m = 0;//p1score = p2score = 0;
-        for (i = 0; i < 8; i++) {
-                for (j = 0; j < 8; j++) {
-                        if (board[i][j] == M) {         //p1 is X
-                                //printf("M!\n");
-                                m++;
-                        }
-                }
-        }
-	return m;
-}
-
-
+//print will do score keeping and print at the same time
 void print() {
         char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         int i, j;
@@ -52,22 +20,26 @@ void print() {
                 printf("%c | ", rows[i]);
                 for (j = 0; j < 8; j++) {
                         if (j != 7) {
+                        		//do the scorekeeping at the same time
+                        		if(board[i][j]==X) p1score++;
+								else if(board[i][j]==O) p2score++;
                                 printf("%c ", getTokenNames(board[i][j]));
-                        }
-                        else {
+                        }else {
                                 printf("%c |",getTokenNames(board[i][j]));
                         }
                 }
                 printf("\n");
         }
         printf("   -----------------\n\n");
-	printf("Player 1 Score: %d\nPlayer 2 Score: %d\n", p1score, p2score);
+	printf("Player 1 (X) Score: %d \nPlayer 2 (O) Score: %d\n\n", p1score, p2score);
+	p1score=0;
+	p2score=0;
 }
 
-
+//get Entry gets entry and it will let the user reenter the input if the input is not legal
 void getEntry() {
 	char x, tempRow;
-        int tempColumn, i;
+    int tempColumn, i;
 
 	char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 

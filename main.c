@@ -7,64 +7,87 @@ int main(){
 
 	srand(time(NULL));
 
-	printf("\n\nWelcome to Othello!\n\n");
+	printf("\n\n Welcome to Othello!\n\n");
 
-	int turn = X;
-	int pass = 0;
 	initialize();
-
-
-	do{
-		printf("TURN: %d\n", turn);
-		clear();
-		moveExist(turn);
-		scoreKeep();
-		if(countMs()){
-			if(turn){
-				printf("moveExist: X\n");
-				clear();
-				moveExist(X);
-				printf("Internal print: X\n");
-				print();
-				//computerMove(X, O);
-				getEntry();
-				printf("col: %d, row: %d\n", col, row);
-				flipIt(X, O, row, col, FLIPONLY);
-				clear();
-				pass = 0;
-			}
-			else{
-				printf("moveExist: O\n");
-				clear();
-				moveExist(O);
-				printf("Internal print: O\n");
+	
+	//these variables are used for the main flow of the game
+	//turn is the current player's symbol, pass indicates one player's turn is passed because
+	//there is no valid move exist.
+    int turn = X;
+	
+	while(pass<2){
+		if(turn){//Player1
+			puts("Player1 (X) is playing ...");
+			//the following check if moveExist, marks moves
+			if(!moveExist(X)) {//No move exist, this means pass.
+				turn=0; 
+				pass++;
+				puts(":) Just passed because there is no move!");
+			}else{
+			//commit moves here 
+			
+				//the following is computer move
+			    //computerMove(X);
+			    // print();
+			    
+			    //the following is human move 
+			    
 				print();
 				getEntry();
-				//computerMove(O, X);
-				printf("col: %d, row: %d\n", col, row);
-				flipIt(O, X, row, col, FLIPONLY);
+				flipIt(X,O,row,col,FLIPONLY);
+				puts("\n You made a move!");
 				clear();
-				pass = 0;
+				print();
 			}
+			
+			turn=0;//take turn, let the other player play.
+			
+		}else{//Player2
+			puts("Player2 (O) is playing....");
+			//the following check if moveExist, marks moves
+			if(!moveExist(O)) {//No move exist, this means pass.
+				turn=1; 
+				pass++;
+				puts(":) Just passed because there is no move!");
+			}else{
+			//commit moves here 
+			    //the following is computer move
+			    computerMove(O);
+			   
+			    print();
+			    
+			    puts("\n Computer just moved. Press ENTER to continue");
+			    getchar();
+			    
+			
+			    
+			    //the following is human move 
+			    
+				//print();
+				//getEntry();
+				//flipIt(O,X,row,col,FLIPONLY);
+				//puts("\n You made a move!");
+				//clear();
+				//print();
+			}
+			
+			turn=1;//take turns, the the other guy play.
+			
 		}
-		else{
-			printf("\nNo Move Exists for %d.  You pass!\n\n", turn);
-			pass++;
-			clear();
-		}
-		scoreKeep();
-		clear();
-		printf("SECOND PRINT\n");
-		print();
-		turn = !turn;
-	} while (pass < 2);
+	}
+	puts("Game over");
+	
+	//SAY WHO WINS THE GAME!!!
+	
+	
+	
     
     
-	printf("\nGAME OVER!\n");
-	printf("Final Score: %d to %d\n", p1score, p2score);
-	if(p1score > p2score) printf("P1 Wins!\n\n");
-	else if (p2score > p1score) printf("P2 Wins!\n\n");
-	else printf("It's a tie!\n\n");
+	//printf("Final Score: %d to %d\n", p1score, p2score);
+	//if(p1score > p2score) printf("P1 Wins!\n\n");
+	//else if (p2score > p1score) printf("P2 Wins!\n\n");
+	//else printf("It's a tie!\n\n");
 
 
 	/*printf("Othello!\n");

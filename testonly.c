@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "JJmakeMove.h"
 #include <time.h>
+
+
 #define N 8
 
 typedef enum  {X=1, O=2, M=3} token;
@@ -51,16 +53,18 @@ puts("\n\n*****************************\n\n");
 				puts(":) !!!!");
 			}else{
 			//commit moves here 
-				print();
-				int vertical,horizontal;
-				puts("Enter vertical and honrizontal sepraated by space: ");
-				fgets(str,20,stdin);
-				sscanf(str,"%d %d", &vertical, &horizontal);
-				printf("You moved verti is %d, honri is : %d\n", vertical,horizontal);
-				flipIt(X,O,vertical,horizontal,FLIPONLY);
-				puts("After human move:");
-				clear();
-				print();
+			    computerMove(X);
+			    print();
+				//print();
+				//int vertical,horizontal;
+				//puts("Enter vertical and honrizontal sepraated by space: ");
+				//fgets(str,20,stdin);
+				//sscanf(str,"%d %d", &vertical, &horizontal);
+				//printf("You moved verti is %d, honri is : %d\n", vertical,horizontal);
+				//flipIt(X,O,vertical,horizontal,FLIPONLY);
+				//puts("After human move:");
+				//clear();
+				//print();
 			}
 			
 			turn=0;//take turn
@@ -74,9 +78,10 @@ puts("\n\n*****************************\n\n");
 				puts(":) !!!!");
 			}else{
 			//commit moves here 
-			    //print();
+			    
 			    computerMove(O);
 			    print();
+			    //print();
 				//int vertical,horizontal;
 				//puts("Enter vertical and honrizontal sepraated by space: ");
 				//sscanf(gets(str),"%d %d", &vertical, &horizontal);
@@ -91,6 +96,7 @@ puts("\n\n*****************************\n\n");
 			
 		}
 	}
+	puts("Game over");
 	
 
 	/*
@@ -149,6 +155,8 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 }
 
 void computerMove(int t){
+	puts("Computer is thinking ... like very hard ");
+	sleep(2);
 	int i,j; // index used in double for loops 
 	int max=0,count=0;
 	int nt =getOppositeSymbol(t);
@@ -187,7 +195,7 @@ void computerMove(int t){
 	  
 	}//end while
 	
-	clear(); //turn it off once finished debugging
+	clear(); //comment out this one then you can see the double board beauty
 }//computerMove
 
 
@@ -366,7 +374,7 @@ int flipIt(int t,int nt, int x, int y, int mode){
 	}//END_DOWNRIGHT
 	//printf("flips is %d\n",flips);
 	return flips;
-}
+}//end flipIt
  
 //some helper function for printing                  
 char getTokenName(int t){

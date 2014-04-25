@@ -4,7 +4,5 @@
 char getTokenNames(int t);
 void print(void);
 void getEntry(void);
-void scoreKeep(void);
-int countMs(void);
 
 #endif
