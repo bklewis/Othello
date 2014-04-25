@@ -40,9 +40,10 @@ void print() {
 //get Entry gets entry and it will let the user reenter the input if the input is not legal
 void getEntry() {
 	char x, tempRow;
-    int tempColumn, i;
+    	int tempColumn, i;
 
-	char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 
         printf("Please enter a row (A-H): ");
         scanf("%c", &tempRow);
@@ -50,14 +51,18 @@ void getEntry() {
         scanf("%d", &tempColumn);
 
 	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
-        if (tempRow < 'A' || tempRow > 'H' || tempColumn < 1 || tempColumn > 8) {
-                printf("\nInvalid entry.  Please enter new move.\n\n");
+
+	if (tempRow < 'A' || tempRow > 'h' || (tempRow > 'H' && tempRow < 'a') || tempColumn < 1 || tempColumn > 8) {
+                printf("\n%c%d is an invalid entry.  Please enter a new move.\n\n", tempRow, tempColumn);
                 getEntry();
         }
 
 	col = tempColumn - 1;
         for (i = 0; i < 8; i++) {
-                if (tempRow == rows[i]) {
+                if (tempRow == rowsUpper[i]) {
+                        row = i;
+                }
+		else if (tempRow == rowsLower[i]) {
                         row = i;
                 }
         }
