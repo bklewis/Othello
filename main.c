@@ -13,8 +13,8 @@ int main(){
 	printf("\n\n Welcome to Othello!\n\n");
 
 	initialize();
-
-    chooseMode(HUMAN,HUMAN);
+	getMode();
+    //chooseMode(HUMAN,HUMAN);
 	return 0;
 }
 
@@ -39,6 +39,7 @@ void computer(int turn){
 void chooseMode(int mode1, int mode2){
     print();
 	turn = randGen(0,1);
+	printf("Turn is %d\n",turn);
 	while(pass<2){
 		if(turn){//Player1
 			puts("Player1 (X) is playing ...");

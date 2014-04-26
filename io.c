@@ -81,15 +81,15 @@ void getMode(){
 	"    3 -> Computer vs. Computer\n");
 	scanf("%c", &x);
 
-	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
-
-	/*if (x == '1') choseMode(HUMAN, COMPUTER);
-	else if (x == '2') choseMode(HUMAN, HUMAN);
-	else if (x == '3') choseMode(COMPUTER, COMPUTER);
+	if (x == '1') chooseMode(HUMAN, COMPUTER);
+	else if (x == '2') chooseMode(HUMAN, HUMAN);
+	else if (x == '3') chooseMode(COMPUTER, COMPUTER);
 	else{
 		printf("That input is not correct.  Please enter 1, 2, or 3\n\n");
 		getMode();
-	}*/
+	}
+	
+	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up 
 }
 
 
