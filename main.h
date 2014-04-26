@@ -20,9 +20,14 @@ int p2score;
 int row;
 int col;
 int pass;
+int turn;
 
 
 typedef enum {X = 1, O = 2, M = 3} token;
 typedef enum {COUNTONLY,FLIPONLY} mode;
+typedef enum {HUMAN=1,COMPUTER=2} playmode;
+
+
+
 
 #endif

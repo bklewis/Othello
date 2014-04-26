@@ -5,7 +5,7 @@ int randGen( int min,  int max);
 int getOppositeSymbol(int t);
 void computerMoveHelper(int t, int nt, int *max, int *count);
 void computerMove(int t);
-int flipIt(int t,int nt, int x, int y,int mode);
+int flipIt(int t, int x, int y,int mode);
 char getTokenName(int t);
 
 void clear();

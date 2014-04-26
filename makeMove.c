@@ -30,7 +30,7 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 		for(j=0; j<N; j++){
 			if(board[i][j]==M){//for every M
 				county++; //county is same as count
-				computeCount[i][j]=flipIt(t,nt,i,j,COUNTONLY);
+				computeCount[i][j]=flipIt(t,i,j,COUNTONLY);
 				//the max number of tokens that the "most capable" M can filp
 				if(computeCount[i][j]>maxy) maxy =computeCount[i][j]; 
 			}//end if board
@@ -71,7 +71,7 @@ void computerMove(int t){
 				if(computeCount[i][j]==max){
 					if(number==1){
 					    //printf("\nThe computer decides to move i(verti): %d, j(Hori): %d \n", i, j);
-						flipIt(t,nt,i,j,FLIPONLY);
+						flipIt(t,i,j,FLIPONLY);
 						tog=0;
 						number=0;
 						i=N;
@@ -90,9 +90,9 @@ void computerMove(int t){
 
 //it goes to eight direction. Depending on the mode, it will flip or count flips in each direction. It returns 
 //number of flips in a certain direction.
-int flipIt(int t,int nt, int x, int y, int mode){
+int flipIt(int t, int x, int y, int mode){
 	//for a certain position, flips remembers the total number of flips in eight direction.
-	
+	int nt= getOppositeSymbol(t);
 	int flips=0;
 	if(board[x][y]!=M) {
 		printf("Input coordinates for M is not valid!\n");
