@@ -10,3 +10,12 @@ A7
 !!! PROGRAM PASSES FOR O WHEN IT SHOULDN'T
 A5
 !!! PROGRAM PASSES FOR O WHEN IT SHOULDN'T
+
+In human v.s human mode, 
+error trace:
+//enter 2 for human vs human mode
+cs
+ccc
+c5 <--- this might be differnt, but it should be a valid move one the screen.
+//Segmentation fault
+ 
