@@ -72,3 +72,24 @@ void getEntry() {
 		getEntry();
 	}
 }
+
+void getMode(){
+	char x;
+	printf("Please select a mode:\n"
+	"    1 -> Human vs. Computer\n"
+	"    2 -> Human vs. Human\n"
+	"    3 -> Computer vs. Computer\n");
+	scanf("%c", &x);
+
+	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
+
+	/*if (x == '1') choseMode(HUMAN, COMPUTER);
+	else if (x == '2') choseMode(HUMAN, HUMAN);
+	else if (x == '3') choseMode(COMPUTER, COMPUTER);
+	else{
+		printf("That input is not correct.  Please enter 1, 2, or 3\n\n");
+		getMode();
+	}*/
+}
+
+
