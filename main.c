@@ -5,6 +5,20 @@
 
 //Make it three versions, the first one is human vs human, the second version is computer v.s human
 //make sure that human does always start first/second. The last version is c v.s c  
+
+int main(){
+
+	srand(time(NULL));
+
+	printf("\n\n Welcome to Othello!\n\n");
+
+	initialize();
+
+    chooseMode(HUMAN,HUMAN);
+	return 0;
+}
+
+
 void human(int turn){
 	print();
 	getEntry();
@@ -92,51 +106,4 @@ void chooseMode(int mode1, int mode2){
 }
 
 
-int main(){
 
-	srand(time(NULL));
-
-	printf("\n\n Welcome to Othello!\n\n");
-
-	initialize();
-	
-	
-	//these variables are used for the main flow of the game
-	//turn is the current player's symbol, pass indicates one player's turn is passed because
-	//there is no valid move exist.
-   
-  	
-    chooseMode(HUMAN,HUMAN);
-	
-	
-	
-	//SAY WHO WINS THE GAME!!!
-	
-	
-	
-    
-    
-	//printf("Final Score: %d to %d\n", p1score, p2score);
-	//if(p1score > p2score) printf("P1 Wins!\n\n");
-	//else if (p2score > p1score) printf("P2 Wins!\n\n");
-	//else printf("It's a tie!\n\n");
-
-
-	/*printf("Othello!\n");
-
-	initialize();
-	
-	scoreKeep();
-	printIt();
-	moveExist(X);
-	scoreKeep();
-	print();
-	computerMove(X,O);
-	scoreKeep();
-	printIt();*/
-
-	//flipIt(X,6,0,FLIPONLY);
-	//clear();
-	//print();
-	return 0;
-}

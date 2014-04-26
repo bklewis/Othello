@@ -27,7 +27,9 @@ typedef enum {X = 1, O = 2, M = 3} token;
 typedef enum {COUNTONLY,FLIPONLY} mode;
 typedef enum {HUMAN=1,COMPUTER=2} playmode;
 
-
+void human(int turn);
+void computer(int turn);
+void chooseMode(int mode1, int mode2);
 
 
 #endif
