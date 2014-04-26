@@ -34,6 +34,7 @@ void computer(int turn){
      print();
      puts("\n Computer just moved. Press ENTER to continue");
      getchar();
+     fflush(stdin);
 }
 
 void chooseMode(int mode1, int mode2){
