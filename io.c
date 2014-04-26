@@ -13,6 +13,8 @@ char getTokenNames(int t){
 
 //print will do score keeping and print at the same time
 void print() {
+	if(turn ==X) puts("Player1 is playing (X):");
+	else puts("Player2 is playing (O):");
 	p1score=0;
 	p2score=0;
         char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
@@ -33,7 +35,7 @@ void print() {
                 printf("\n");
         }
         printf("   -----------------\n\n");
-	printf("Player 1 (X) Score: %d \nPlayer 2 (O) Score: %d\n\n", p1score, p2score);
+	printf("Player 1 (X) Score: %d \nPlayer 2 (O) Score: %d\n\n--------------------\n", p1score, p2score);
 	
 }
 
@@ -44,16 +46,15 @@ void getEntry() {
 
 	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-
+		
         printf("Please enter a row (A-H): ");
         scanf("%c", &tempRow);
         printf("Please enter a column (1-8): ");
         scanf("%d", &tempColumn);
 
-	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }
-
 	if (tempRow < 'A' || tempRow > 'h' || (tempRow > 'H' && tempRow < 'a') || tempColumn < 1 || tempColumn > 8) {
                 printf("\n%c%d is an invalid entry.  Please enter a new move.\n\n", tempRow, tempColumn);
+                while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
                 getEntry();
         }
 
@@ -69,8 +70,10 @@ void getEntry() {
 
 	if (board[row][col] != M) {
 		printf("%c%d is not a valid move.  Please enter a new move.\n", tempRow, tempColumn);
+		while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 		getEntry();
 	}
+	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 }
 
 void getMode(){
@@ -79,12 +82,14 @@ void getMode(){
 	"    1 -> Human vs. Computer\n"
 	"    2 -> Human vs. Human\n"
 	"    3 -> Computer vs. Computer\n");
+	
 	scanf("%c", &x);
-
+    
 	if (x == '1') chooseMode(HUMAN, COMPUTER);
 	else if (x == '2') chooseMode(HUMAN, HUMAN);
 	else if (x == '3') chooseMode(COMPUTER, COMPUTER);
 	else{
+	    while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 		printf("That input is not correct.  Please enter 1, 2, or 3\n\n");
 		getMode();
 	}
