@@ -10,6 +10,7 @@ int main(){
 	srand(time(NULL));
         system("clear");
 	printf("\n\nWelcome to Othello!\n\n");
+	printf("YOOOOOOO!\n\n\n");
 	initialize();
 	getMode();
    

@@ -46,7 +46,8 @@ void getEntry() {
 	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 
-        while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+	flush();
+        //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
         printf("Please enter a row (A-H): ");
         scanf("%c", &tempRow);
         //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
@@ -58,7 +59,7 @@ void getEntry() {
 
 	if (tempRow < 'A' || tempRow > 'h' || (tempRow > 'H' && tempRow < 'a') || tempColumn < 1 || tempColumn > 8) {
                 printf("\n%c%d is an invalid entry.  Please enter a new move.\n\n", tempRow, tempColumn);
-                while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+                //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
                 getEntry();
         }
 
@@ -74,10 +75,12 @@ void getEntry() {
 
 	if (board[row][col] != M) {
 		printf("%c%d is not a valid move.  Please enter a new move.\n", tempRow, tempColumn);
-		while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+		flush();
+		//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 		getEntry();
 	}
-	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+	flush();
+	//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 }
 
 void getMode(){
@@ -93,10 +96,18 @@ void getMode(){
 	else if (x == '2') chooseMode(HUMAN, HUMAN);
 	else if (x == '3') chooseMode(COMPUTER, COMPUTER);
 	else{
-	    while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+		flush();
+	    //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 		printf("That input is not correct.  Please enter 1, 2, or 3\n\n");
 		getMode();
 	}
-	
-	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up 
+	flush();
+	//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up 
 }
+
+void flush(void){ 
+	int c;
+	while (c != '\n' && c != EOF){ 
+		c = getchar(); 
+	}
+} 
