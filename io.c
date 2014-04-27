@@ -24,9 +24,9 @@ void print() {
                 printf("%c | ", rows[i]);
                 for (j = 0; j < 8; j++) {
                         if (j != 7) {
-                        		//do the scorekeeping at the same time
-                        		if(board[i][j]==X) p1score++;
-								else if(board[i][j]==O) p2score++;
+                        	//do the scorekeeping at the same time
+                        	if(board[i][j]==X) p1score++;
+				else if(board[i][j]==O) p2score++;
                                 printf("%c ", getTokenNames(board[i][j]));
                         }else {
                                 printf("%c |",getTokenNames(board[i][j]));
@@ -36,7 +36,6 @@ void print() {
         }
         printf("   -----------------\n\n");
 	printf("Player 1 (X) Score: %d \nPlayer 2 (O) Score: %d\n\n--------------------\n", p1score, p2score);
-	
 }
 
 //get Entry gets entry and it will let the user reenter the input if the input is not legal
@@ -46,7 +45,7 @@ void getEntry() {
 
 	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-		
+
         while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
         printf("Please enter a row (A-H): ");
         scanf("%c", &tempRow);
@@ -101,5 +100,3 @@ void getMode(){
 	
 	while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up 
 }
-
-

@@ -51,7 +51,7 @@ void computerMove(int t){
 	int nt =getOppositeSymbol(t);
 	
 	if(nt==0){
-		printf("computer Move helper input symbol is wrong, abort!\n");
+		printf("Computer Move helper input symbol is wrong, abort!\n");
 		exit(0);
 	}
 	
@@ -83,7 +83,6 @@ void computerMove(int t){
  	    }//for i
 	  
 	}//end while
-	
 	clear(); 
 }//computerMove
 
@@ -95,7 +94,7 @@ int flipIt(int t, int x, int y, int mode){
 	int nt= getOppositeSymbol(t);
 	int flips=0;
 	if(board[x][y]!=M) {
-		printf("Input coordinates for M is not valid!\n");
+		printf("Input coordinates for M are not valid!\n");
 		return -1; //return -1 is M is not valid coordinates
 	}
 	
@@ -403,5 +402,3 @@ int moveExist (int t){
 	//printf("signal is: %d  ", signal);	
 	return signal;
 }//End moveExist
-
-

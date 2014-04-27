@@ -8,8 +8,8 @@
 
 int main(){
 	srand(time(NULL));
-    system("clear");
-	printf("\n\n Welcome to Othello!\n\n");
+        system("clear");
+	printf("\n\nWelcome to Othello!\n\n");
 	initialize();
 	getMode();
    
@@ -22,7 +22,7 @@ void human(int turn){
 	print();
 	getEntry();
 	flipIt(turn,row,col,FLIPONLY);
-	puts("\n You made a move!");
+	puts("\nYou made a move!\n");
 	clear();
 	print();
 }
@@ -36,7 +36,7 @@ void computer(int turn){
      system("clear");
      
      print();
-     puts("\n Computer just moved!");
+     puts("\nComputer just moved!\n");
      sleep(3);
 }
 
@@ -60,7 +60,7 @@ void chooseMode(int mode1, int mode2){
 			if(!moveExist(X)) {//No move exist, this means pass.
 				turn=0; 
 				pass++;
-				puts(":) Just passed because there is no move!");
+				puts("Turn is passed: no move available!\n");
 			}else{
 			//commit moves here 
 				if(mode1==HUMAN) human(X);
@@ -75,7 +75,7 @@ void chooseMode(int mode1, int mode2){
 			if(!moveExist(O)) {//No move exist, this means pass.
 				turn=1; 
 				pass++;
-				puts(":) Just passed because there is no move!");
+				puts("Turn is passed: no move available!\n");
 			}else{
 			//commit moves here 
 				if(mode2==HUMAN) human(O);
@@ -87,11 +87,8 @@ void chooseMode(int mode1, int mode2){
 	}
 	puts("Game over");
 	printf("p1s: %d p2s: %d\n",p1score,p2score);
-	if(p1score>p2score) puts("Player1 (X) wins! ");
-	else if(p1score<p2score)  puts("Player2 (O) wins! ");
-	else puts("Tied! Boring... ");
+	if(p1score>p2score) puts("Player 1 (X) wins! \n");
+	else if(p1score<p2score)  puts("Player 2 (O) wins! \n");
+	else puts("You tied!  Boring... \n");
 	
 }
-
-
-
