@@ -47,10 +47,15 @@ void getEntry() {
 	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 		
+        while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
         printf("Please enter a row (A-H): ");
         scanf("%c", &tempRow);
+        //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+
         printf("Please enter a column (1-8): ");
         scanf("%d", &tempColumn);
+        //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+
 
 	if (tempRow < 'A' || tempRow > 'h' || (tempRow > 'H' && tempRow < 'a') || tempColumn < 1 || tempColumn > 8) {
                 printf("\n%c%d is an invalid entry.  Please enter a new move.\n\n", tempRow, tempColumn);
