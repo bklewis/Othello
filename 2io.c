@@ -41,10 +41,13 @@ void print() {
 //get Entry gets entry and it will let the user reenter the input if the input is not legal
 void getEntry() {
 
-	printf("GET ENTRY\n\n");
+	char x;
 
-	char x, tempRow;
-    	int tempColumn, i;
+	while ((x = getchar()) != EOF){
+		printf("GET ENTRY\n\n");
+
+		char tempRow;
+    		int tempColumn, i;
 
 	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
@@ -75,6 +78,7 @@ void getEntry() {
 	} else {
 		printf("YOUZA NASTY PIECE OF WORK\n");
 	}
+}
 }
 
 void getMode(){

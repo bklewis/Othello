@@ -1,10 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "makeMove.h"
 #include "main.h"
-#include <time.h>
-#include <unistd.h>
-#define N 8
 
 int randGen( int min,  int max){/*randge is [min,max]. Have to called srand(time(0)) in main for randomness*/
 	double scaled = (double)rand()/RAND_MAX;
