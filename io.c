@@ -40,26 +40,33 @@ void print() {
 
 //get Entry gets entry and it will let the user reenter the input if the input is not legal
 void getEntry() {
+
+	printf("GET ENTRY\n\n");
+
 	char x, tempRow;
     	int tempColumn, i;
 
 	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 
-	flush();
+	//flush();
         //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
-        printf("Please enter a row (A-H): ");
-        scanf("%c", &tempRow);
+        printf("Please enter a row (A-H) and column (1-8)\n"
+		"in form [row][column]: ");
+        if ((scanf("%c%d", &tempRow, &tempColumn)) == 2) printf("YAY\n");
+	//flush();
         //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 
-        printf("Please enter a column (1-8): ");
-        scanf("%d", &tempColumn);
+        //printf("Please enter a column (1-8): ");
+        //scanf("%d", &tempColumn);
+	//flush();
         //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 
 
 	if (tempRow < 'A' || tempRow > 'h' || (tempRow > 'H' && tempRow < 'a') || tempColumn < 1 || tempColumn > 8) {
                 printf("\n%c%d is an invalid entry.  Please enter a new move.\n\n", tempRow, tempColumn);
-                //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+                //flush();
+		//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
                 getEntry();
         }
 
@@ -75,11 +82,11 @@ void getEntry() {
 
 	if (board[row][col] != M) {
 		printf("%c%d is not a valid move.  Please enter a new move.\n", tempRow, tempColumn);
-		flush();
+		//flush();
 		//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 		getEntry();
 	}
-	flush();
+	//flush();
 	//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
 }
 
