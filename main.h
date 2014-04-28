@@ -13,20 +13,24 @@
 int computeCount[N][N];
 char board[N][N];
 int legalMoves[N*N];
-//int flips;
-//char flip[N*N];  flip is not 
 
-int p1score;
+
+int p1score; //player socre
 int p2score;
 int row;
 int col;
 int pass;
 int turn;
+int bonusmode;
+int bonus_x;
+int bonus_y;
 
 
 typedef enum {X = 1, O = 2, M = 3} token;
 typedef enum {COUNTONLY,FLIPONLY} mode;
 typedef enum {HUMAN=1,COMPUTER=2} playmode;
+typedef enum {BONUSON=1,BONUSOFF=0} bonus;
+
 
 void human(int turn);
 void computer(int turn);

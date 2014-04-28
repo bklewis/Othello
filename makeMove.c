@@ -1,5 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "makeMove.h"
 #include "main.h"
+#include <time.h>
+#include <unistd.h>
+#define N 8
 
 int randGen( int min,  int max){/*randge is [min,max]. Have to called srand(time(0)) in main for randomness*/
 	double scaled = (double)rand()/RAND_MAX;
@@ -85,6 +90,7 @@ void computerMove(int t){
 //it goes to eight direction. Depending on the mode, it will flip or count flips in each direction. It returns 
 //number of flips in a certain direction.
 int flipIt(int t, int x, int y, int mode){
+	
 	//for a certain position, flips remembers the total number of flips in eight direction.
 	int nt= getOppositeSymbol(t);
 	int flips=0;
@@ -256,6 +262,32 @@ int flipIt(int t, int x, int y, int mode){
 		}
 	}//END_DOWNRIGHT
 	//printf("flips is %d\n",flips);
+	
+	
+	
+	if(mode == FLIPONLY && bonus_x==x && bonus_y==y){
+		int i; //cursor
+		int tog=1; // a flag
+		int temp=randGen(0,63);
+		puts("\n	**Congrats! You get a BONUS!!**");
+		while(tog){		
+			for(i =0 ; i< N*N; i++){
+				if(board[i/N][i%N]==2 && i==temp){
+					board[i/N][i%N]=t;
+					printf("	The token at (%c,%d) will be yours!\n", (i/N)+'A', (i%N)+1);
+					sleep(2);
+					tog=0;
+					break;
+			    }//end if	
+		     }//end for
+		 	 temp = (temp+1)%(N*N);
+         }   
+		 bonusmode=0;
+		 //printf("The temp here is %d", temp);
+         sleep(2);
+         //getchar();
+	}
+	
 	return flips;
 }//end flipIt
  

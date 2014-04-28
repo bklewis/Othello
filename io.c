@@ -13,6 +13,7 @@ char getTokenNames(int t){
 
 //print will do score keeping and print at the same time
 void print() {
+	puts("\n	OTHELLO \n");
 	if(turn ==X) puts("Player1 is playing (X):");
 	else puts("Player2 is playing (O):");
 	p1score=0;
@@ -24,10 +25,10 @@ void print() {
                 printf("%c | ", rows[i]);
                 for (j = 0; j < 8; j++) {
                         if (j != 7) {
-                        	//do the scorekeeping at the same time
-                        	if(board[i][j]==X) p1score++;
-				else if(board[i][j]==O) p2score++;
-                                printf("%c ", getTokenNames(board[i][j]));
+                        		//do the scorekeeping at the same time
+                        		if(board[i][j]==X) p1score++;
+				            	else if(board[i][j]==O) p2score++;
+                            	printf("%c ", getTokenNames(board[i][j]));
                         }else {
                                 printf("%c |",getTokenNames(board[i][j]));
                         }
@@ -40,77 +41,72 @@ void print() {
 
 //get Entry gets entry and it will let the user reenter the input if the input is not legal
 void getEntry() {
+	int flag=1;
+	char str[100];
+   	int num=0;
+    char letter=0;
 
-	printf("GET ENTRY\n\n");
+	printf("Please enter a row (A-H) and a column (1-8): ");
+	while(1){
+	  	flag=1; //indicator
+      	gets(str);//get line
+      	sscanf(str, "%c %d", &letter, &num);//parse line
+      
+        //check if input is valid
+      	if((num>=1 && num<=8) &&  ((letter>='a' && letter<='h')||(letter>='A' && letter<='H')) ){
+        	col = num-1;
+      		flag=0;
+        	if(letter < 123 && letter > 96){row = letter - 'a' ;}
+      		if(letter < 91 && letter > 64){row = letter - 'A' ;}
+      		if (board[row][col] == M) break;
+        	printf("Input %c %d is not a valid move!\nEnter a move where there is an M: ", letter, num);
+        }//end if((num>=1
+      
+    if(flag)printf("Input %c %d is not valid!\nEnter a row (A-H) and a column (1-8): ", letter,num);
+    }//end while(1);
+}//End of getEntry()
 
-	char x, tempRow;
-    	int tempColumn, i;
-
-	char rowsUpper[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
-	char rowsLower[8] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-
-        printf("Please enter a row (A-H) and column (1-8)\n"
-		"in form [row][column]: ");
-        if ((scanf("%c%d", &tempRow, &tempColumn)) == 2){
-
-		if (tempRow < 'A' || tempRow > 'h' || (tempRow > 'H' && tempRow < 'a') || tempColumn < 1 || tempColumn > 8) {
-        	        printf("\n%c%d is an invalid entry.  Please enter a new move.\n\n", tempRow, tempColumn);
-        	        getEntry();
-        	}
-
-		col = tempColumn - 1;
-        	for (i = 0; i < 8; i++) {
-        	        if (tempRow == rowsUpper[i]) {
-        	                row = i;
-        	        }
-			else if (tempRow == rowsLower[i]) {
-        	                row = i;
-        	        }
-        	}
-
-		if (board[row][col] != M) {
-			printf("%c%d is not a valid move.  Please enter a new move.\n", tempRow, tempColumn);
-			getEntry();
-		}
-	} else {
-		printf("YOUZA NASTY PIECE OF WORK\n");
-	}
-}
-
-void getMode(){
-	char x;
-	printf("Please select a mode:\n"
+//returns a number from 1-3, indicating which mode is chosen among the three at the frist prompt
+int getMode(){
+	int flag1=1; //indicators
+	int flag2=1;
+	char str[100]; //used for storage
+   	int num=0;
+    char letter=0;
+    int res=0; //temp result holder
+    
+	if(flag1)printf("Please select a mode:\n"
 	"    1 -> Human vs. Computer\n"
 	"    2 -> Human vs. Human\n"
 	"    3 -> Computer vs. Computer\n");
 	
-	scanf("%c", &x);
-    
-	if (x == '1') chooseMode(HUMAN, COMPUTER);
-	else if (x == '2') chooseMode(HUMAN, HUMAN);
-	else if (x == '3') chooseMode(COMPUTER, COMPUTER);
-	else{
-		flush();
-		printf("That input is not correct.  Please enter 1, 2, or 3\n\n");
-		getMode();
+	while(flag1){
+	//this checks 1-3
+     	gets(str);
+      	sscanf(str, "%d", &num);
+      	printf("Entered: %d\n", num);
+      	if (num == 1) {res=1;flag1=0;break;}
+	    else if (num == 2) {res=2;flag1=0;break;}
+	    else if (num == 3) {res=3;flag1=0;break;}
+	    else{
+	    	printf("%d is not valid, choose from 1-3: ",num);
+	    }
 	}
-	flush();
-	//while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up 
+	
+	//Prompt 2 
+	if(flag2)printf("Do you want to try BONUS MODE (= Unfair advantages most of the time)? [y/n]: ");
+	
+	while(flag2){
+		//this check y/n only
+     	gets(str);
+      	sscanf(str, "%c", &letter);
+      	printf("Entered: %c\n", letter);
+      	if (letter == 'y' || letter =='Y') {bonusmode=1;flag2=0; return res;}
+	    else if (letter == 'n' || letter== 'N') {bonusmode=0;flag2=0;return res;}
+	    else{
+	    	printf("%c is not valid, type y or n: ",letter);
+	    }
+	}
+	//the res indicates which mode are chosen.
+    return res;
 }
-
-void flush(void){ 
-	int c;
-	while (c != '\n' && c != EOF){ 
-		c = getchar(); 
-	}
-} 
-
-	//flush();
-        //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
-
-        //printf("Please enter a column (1-8): ");
-        //scanf("%d", &tempColumn);
-	//flush();
-        //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
-
-

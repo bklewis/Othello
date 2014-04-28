@@ -8,12 +8,20 @@
 
 int main(){
 	srand(time(NULL));
-        system("clear");
-	printf("\n\nWelcome to Othello!\n\n");
-	printf("YOOOOOOO!\n\n\n");
+    system("clear");
+	
+	printf("\n\nWelcome to Othello!\n\nYOOOOOOO!\n\n\n");
+	
 	initialize();
-	getMode();
-   
+	int whichmode= getMode();
+   	puts("in main");
+   	if(whichmode==1)chooseMode(HUMAN, COMPUTER);
+   	else if(whichmode==2) chooseMode(HUMAN,HUMAN);
+   	else if(whichmode==3) chooseMode (COMPUTER,COMPUTER);
+   	else{
+   		 	puts("GetMode functions returns wierd stuff. Abort!");
+   		 	exit(0);
+   		}
 	return 0;
 }
 
@@ -33,22 +41,30 @@ void computer(int turn){
      system("clear");
      print();
      computerMove(turn); //it will say computer is thinking
-     sleep(2);
+     sleep(1);
      system("clear");
      
      print();
      puts("\nComputer just moved!\n");
-     sleep(3);
+     sleep(1);
 }
 
 void chooseMode(int mode1, int mode2){
+	//somewhere in getMode, it will say bonusmode = BONUSON or BONUSOFF 
+	//bonusmode=1;
+	if(bonusmode){//bonus_on
+			bonus_x=randGen(0,7);
+       		bonus_y=randGen(0,7);
+       		
+	}
+	
     char x;
-    while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
+    //while((x = fgetc(stdin)) != EOF && x != '\n'){ ; }//clean up
     system("clear");
     //print();
     for(int i=3; i>=0; i--){
         printf("Game Start in %d\n",i);
-        sleep(1);
+        sleep(0.8);
         system("clear");
     }
    
@@ -87,9 +103,10 @@ void chooseMode(int mode1, int mode2){
 		}
 	}
 	puts("Game over");
-	printf("p1s: %d p2s: %d\n",p1score,p2score);
+	printf("p1 scores: %d p2 scores: %d\n",p1score,p2score);
 	if(p1score>p2score) puts("Player 1 (X) wins! \n");
 	else if(p1score<p2score)  puts("Player 2 (O) wins! \n");
 	else puts("You tied!  Boring... \n");
+	exit(0);
 	
 }
