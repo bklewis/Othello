@@ -23,9 +23,10 @@ Gameplay:
 	O on the the upper left and bottom right corners, and X on the upper right and
 	bottom left corners.
 
-	To make a move, a player must place a token of their symbol on an empty space
-	ajacent to a token of the opponent's color (horizontally, vertically, or
-	diagonally) in such a way that one or more of the opponent's tokens are
+	Possible moves that a player make make will be marked on the board by an 'M' at 
+	the start of their turn.  To make a move, a player must place a token of their 
+	symbol on an empty space ajacent to a token of the opponent's color (horizontally, 
+	vertically, or	diagonally) in such a way that one or more of the opponent's tokens are
 	sandwiched between the new token and a "base" token (any of the current
 	player's tokens already on the board).  There can be no empty spaces in the
 	squares between the new and base tokens.  All of the tokens between the new
