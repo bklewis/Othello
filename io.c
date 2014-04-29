@@ -1,16 +1,6 @@
 #include "io.h"
 #include "main.h"
-
-//gets token names for rest of functions in io.c
-char getTokenNames(int t){
-	switch(t){
-		case X: return 'X';
-		case O: return 'O';
-		case M: return 'M';
-		default: return '.';
-	}
-}
-
+#include "makeMove.h"
 
 //prints the board and simultaneously keeps score
 void print() {
@@ -29,9 +19,9 @@ void print() {
                         	//do the scorekeeping at the same time
                         	if(board[i][j]==X) p1score++;
 				else if(board[i][j]==O) p2score++;
-                            	printf("%c ", getTokenNames(board[i][j]));
+                            	printf("%c ", getTokenName(board[i][j]));
                         }else {
-                                printf("%c |",getTokenNames(board[i][j]));
+                                printf("%c |",getTokenName(board[i][j]));
                         }
                 }
                 printf("\n");

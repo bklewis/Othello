@@ -51,8 +51,8 @@ void computer(int turn){
      sleep(1);
 }
 
-//Chooses mode based on user input and runs both players' turns
-//until game is complete
+//chooses mode based on user input
+//runs both players' turns until game is complete
 void chooseMode(int mode1, int mode2){
 	//getMode specifies whether bonusmode is BONUSON or BONUSOFF 
 	if(bonusmode){
@@ -71,8 +71,8 @@ void chooseMode(int mode1, int mode2){
 	turn = randGen(0,1);
 	while(pass<2){
 		if(turn){//Player1
-			//the following check if moveExist, marks moves
-			if(!moveExist(X)) {//No move exist, this means pass.
+			//check if moveExist, marks moves
+			if(!moveExist(X)) {//no move exist, this means pass
 				turn=0;
 				pass++;
 				puts("Turn is passed: no move available!\n");
