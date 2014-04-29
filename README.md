@@ -44,7 +44,7 @@ Starting a Game:
 	Choose mode (1) to play against the computer's AI or mode (2) to play against a 
 	friend.  Choose mode (3) to watch the computer play itself! Once you have chosen 
 	your game mode there is an additional option for "bonus mode."  In bonus mode 
-	there is one square on the board which will give you a bonus if you play on it.  
+	there is one square on the board which will give you a bonus if you play on it.
 	Whoever plays on this square will not only get the token they placed and any 
 	of their opponent's that they flipped, but one additional token belonging to 
 	their opponent will be randomly selected and flipped to the current player's 
