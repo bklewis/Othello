@@ -1,10 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "makeMove.h"
 #include "main.h"
-#include <time.h>
-#include <unistd.h>
-#define N 8
 
 //random number generator with range [min,max]
 //must call srand(time(0)) in main

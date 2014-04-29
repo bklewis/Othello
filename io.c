@@ -82,12 +82,15 @@ int getMode(){
 		else if (num == 2) {res=2;flag1=0;break;}
 		else if (num == 3) {res=3;flag1=0;break;}
 		else{
-			printf("%d is not valid, choose from 1-3: ",num);
+			printf("%d is not valid, choose from 1-3: ", num);
 		}
 	}
 
 	//Prompt 2
-	if(flag2)printf("Do you want to try BONUS MODE ()? [y/n]: ");
+	if(flag2)printf("\nBonus mode runs a special game that involves a hidden 'bonus' tile.\n"
+	"When the tile is played upon by one player, it acts as a normal token, but additionally\n"
+	"flips one of the opponent's tiles (chosen at random) to the symbol of the player who hit the bonus.\n"
+	"\nDo you want to try BONUS MODE? [y/n]: ");
 
 	while(flag2){
 		//this checks y/n only

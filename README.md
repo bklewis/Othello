@@ -53,7 +53,8 @@ Starting a Game:
 
 To Start the Progam:
         In the directory you have saved the Othello source files, enter the following commands:
-                $ make clean
+                $ make 
+		$ make clean
                 $ ./Othello
         This will bring you to the prompt to choose your mode and play the game!
 
