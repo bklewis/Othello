@@ -13,3 +13,5 @@ makeMove.o: makeMove.c
 io.o: io.c
 	gcc -c io.c -std=c99
 
+clean:
+	rm -rf *o Othello
