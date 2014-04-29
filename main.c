@@ -7,24 +7,26 @@ int main(){
 	srand(time(NULL));
 	system("clear");
 
-	//create board
+	//create the board
 	printf("\n\nWelcome to Othello!\n\n");
 	initialize();
 
-	//get mode of game and run
+	//get the mode from the user
 	int whichmode= getMode();
    	puts("in main");
+	//and run the game!
    	if(whichmode==1)chooseMode(HUMAN,COMPUTER);
    	else if(whichmode==2) chooseMode(HUMAN,HUMAN);
    	else if(whichmode==3) chooseMode(COMPUTER,COMPUTER);
-   	else{
+   	//something is wrong
+	else{
 		puts("GetMode functions return errors. Abort!");
 		exit(0);
    	}
 	return 0;
 }
 
-//the human turn
+//run the human turn (get input from user)
 void human(int turn){
 	system("clear");
 	print();
@@ -35,7 +37,7 @@ void human(int turn){
 	print();
 }
 
-//the computer turn
+//run the computer turn (automatically generate a move)
 void computer(int turn){
      system("clear");
      print();
@@ -47,9 +49,11 @@ void computer(int turn){
      sleep(1);
 }
 
+//Chooses mode based on user input and runs both players' turns
+//until game is complete
 void chooseMode(int mode1, int mode2){
 	//getMode specifies whether bonusmode is BONUSON or BONUSOFF 
-	if(bonusmode){//bonus_on
+	if(bonusmode){
 		bonus_x=randGen(0,7);
        		bonus_y=randGen(0,7);
 	}
@@ -65,7 +69,6 @@ void chooseMode(int mode1, int mode2){
 	turn = randGen(0,1);
 	while(pass<2){
 		if(turn){//Player1
-			//puts("Player1 (X) is playing ...");
 			//the following check if moveExist, marks moves
 			if(!moveExist(X)) {//No move exist, this means pass.
 				turn=0;
@@ -76,10 +79,9 @@ void chooseMode(int mode1, int mode2){
 				if(mode1==HUMAN) human(X);
 				if(mode1==COMPUTER) computer(X);
 			}
-			turn=0;//take turn, let the other player play.
+			turn=0;//next player's turn
 
 		}else{//Player2
-			//puts("Player2 (O) is playing....");
 			//the following check if moveExist, marks moves
 			if(!moveExist(O)) {//No move exist, this means pass.
 				turn=1;
@@ -94,7 +96,7 @@ void chooseMode(int mode1, int mode2){
 		}
 	}
 	puts("GAME OVER\n");
-	printf("Final Score:\nPlayer 1: %d, Player 2: %d\n",p1score,p2score);
+	printf("Final Score:  %d to %d\n\n",p1score,p2score);
 	if(p1score>p2score) puts("Player 1 (X) wins! \n");
 	else if(p1score<p2score)  puts("Player 2 (O) wins! \n");
 	else puts("You tied!  Boring... \n");
