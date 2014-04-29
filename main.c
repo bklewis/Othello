@@ -14,7 +14,6 @@ int main(){
 
 	//get the mode from the user
 	int whichmode= getMode();
-   	puts("in main");
 
 	//and run the game!
    	if(whichmode==1)chooseMode(HUMAN,COMPUTER);
