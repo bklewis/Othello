@@ -6,10 +6,11 @@
 #include <unistd.h>
 #define N 8
 
-/*range is [min,max]. Have to called srand(time(0)) in main for randomness*/
-int randGen( int min,  int max){
+//random number generator:
+//range is [min,max]. Have to called srand(time(0)) in main for randomness
+int randGen( int min, int max){
 	double scaled = (double)rand()/RAND_MAX;
-    return (max - min +1)*scaled + min;
+	return (max - min +1)*scaled + min;
 }
 
 //given t == X, it returns O, and vice versa.
@@ -20,13 +21,13 @@ int getOppositeSymbol(int t){
 }
 
 //computerMoveHelper: it looks at the board, for every M, store the number of token each M can flip.
-//It also updates variable count (number of M on the board currently.) and max: the max number of tokens
-//that the "most capable" M can filp
-void computerMoveHelper(int t, int nt, int *max, int *count){ 
+//It also updates variable count (number of M on the board currently) and max (the max number of tokens
+//that the "most capable" M can flip)
+void computerMoveHelper(int t, int nt, int *max, int *count){
 	int maxy=0;
 	int county=0;
 	int i=0,j=0;
-	//go through the board
+	//iterate through the board
 	for(i=0; i<N ;i++){
 		for(j=0; j<N; j++){
 			if(board[i][j]==M){//for every M
@@ -36,10 +37,9 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 				if(computeCount[i][j]>maxy) maxy =computeCount[i][j]; 
 			}//end if board
 		}//enf for int j
-	}//end for i	
+	}//end for i
 	*max=maxy;
 	*count=county;
-	
 }
 
 
@@ -47,32 +47,31 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 void computerMove(int t){
 	puts("Computer is thinking ... like very hard ");
 
-	int i,j; // index used in double for loops 
+	int i,j; //indexes used for loops
 	int max=0,count=0;
 	int nt =getOppositeSymbol(t);
-	
+
 	//Normally this would never happen
 	if(nt==0){
-		printf("Computer Move helper input symbol is wrong, abort!\n");
+		printf("Computer Move helper input symbol is wrong.  Abort!\n");
 		exit(0);
 	}
-	
+
 	computerMoveHelper(t,nt,&max,&count);
-	
+
 	//next the computer will pick the best M to flip
-    //number is random, of range[1,count].
-    int number = randGen(1,count);
-  
-    int tog=1;
-    //assume there are 3 'M's on the board that can flip the most token. 
-    //the following will loops through the board, pick the M only if number ==1
-    //number is always some random number >= 1
-    while(tog && number >=1){
+	//number is random, of range[1,count].
+	int number = randGen(1,count);
+
+	int tog=1;
+	//this function uses a random number generato to randomly select one of the M's that
+	//will flip the largest number of tokens possible.  This simulates an intelligent opponent.
+	while(tog && number >=1){
 		for(i=0; i<N; i++){
 			for(j=0; j<N; j++){
 				if(computeCount[i][j]==max){
 					if(number==1){
-					    //flip and reset variables 
+						//flip and reset variables 
 						flipIt(t,i,j,FLIPONLY);
 						tog=0;
 						number=0;
@@ -84,8 +83,7 @@ void computerMove(int t){
 			}//for j
  	    }//for i
 	}//end while
-	//clear up M's on the board
-	clear(); 
+	clear(); //clear up M's on the board
 }//computerMove
 
 
