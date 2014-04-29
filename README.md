@@ -14,18 +14,18 @@ in April 2014 for Professor Jia Tao's Programming Paradigms class at Bryn Mawr C
 
 The Game:
         Othello is a two-person game played with 64 tokens on an eight-by-eight grid.
-        Each token has two sides, X and O, each of which represents a player.  The goal
-        of the game is to have more tokens of your symbol than your opponent's symbol on
-        the grid by the end of the game.
+        Every individual token has two sides, X and O, each of which represents a player.  
+	The goal of the game is to have more tokens of your symbol than your opponent's 
+	symbol on the grid by the end of the game.
 
 Gameplay:
         To begin, the central four squares of the board will be filled with four tokens:
-        O on the the upper left and bottom right corners, and X on the upper right and
+        X on the the upper left and bottom right corners, and O on the upper right and
         bottom left corners.
 
         Possible moves that a player may make will be marked on the board by an 'M' at
         the start of their turn.  To make a move, a player must place a token of their
-        symbol on an empty space ajacent to a token of the opponent's symbol (horizontally,
+        symbol on an M, placed ajacent to a token of the opponent's symbol (horizontally,
         vertically, or  diagonally) in such a way that one or more of the opponent's
         tokens are sandwiched between the new token and a "base" token (any of the current
         player's tokens already on the board).  There can be no empty spaces in the
@@ -53,7 +53,7 @@ Starting a Game:
 
 To Start the Progam:
         In the directory you have saved the Othello source files, enter the following commands:
-                $ make
+                $ make clean
                 $ ./Othello
         This will bring you to the prompt to choose your mode and play the game!
 

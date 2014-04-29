@@ -41,7 +41,7 @@ void print() {
 }
 
 //gets user entry for column and row; 
-//check input and allows user to reenter if input not legal
+//checks input and allows user to reenter if input not legal
 void getEntry() {
 	int flag=1;
 	char str[100];
@@ -68,7 +68,8 @@ void getEntry() {
 	}//end while(1);
 }//End of getEntry()
 
-//returns a number from 1-3, indicating which mode is chosen among the three at the frist prompt
+//returns a number from 1-3, indicating which mode is chosen 
+//among the three at the frist prompt
 int getMode(){
 	int flag1=1; //indicators
 	int flag2=1;

@@ -6,23 +6,23 @@
 #include <unistd.h>
 #define N 8
 
-//random number generator:
-//range is [min,max]. Have to called srand(time(0)) in main for randomness
+//random number generator with range [min,max]
+//must call srand(time(0)) in main
 int randGen( int min, int max){
 	double scaled = (double)rand()/RAND_MAX;
 	return (max - min +1)*scaled + min;
 }
 
-//given t == X, it returns O, and vice versa.
+//given t == X return O (and vice versa)
 int getOppositeSymbol(int t){
 	if(t==X) return O;
 	if(t==O) return X;
 	else return 0;
 }
 
-//computerMoveHelper: it looks at the board, for every M, store the number of token each M can flip.
-//It also updates variable count (number of M on the board currently) and max (the max number of tokens
-//that the "most capable" M can flip)
+//looks at the board and stores the number of token each M can flip (per M).
+//additionally updates variable count (number of M's on the board currently) 
+//and max (the max number of tokens that the "most capable" M can flip)
 void computerMoveHelper(int t, int nt, int *max, int *count){
 	int maxy=0;
 	int county=0;
@@ -43,9 +43,10 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 }
 
 
-//ConputerMove will determine where to move given the current player's symbol t
+//determines where to move given the current player's symbol t
+//using a greedy artificial intelligence algorithm
 void computerMove(int t){
-	puts("Computer is thinking ... like very hard ");
+	puts("Computer is thinking ... like very hard");
 
 	int i,j; //indexes used for loops
 	int max=0,count=0;
@@ -81,16 +82,16 @@ void computerMove(int t){
 					number--;
 				}//if
 			}//for j
- 	    }//for i
+ 		}//for i
 	}//end while
 	clear(); //clear up M's on the board
 }//computerMove
 
-
-//it goes to eight direction. Depending on the mode, it will flip or count flips in each direction. It returns 
-//number of flips in a certain direction.
+//crawls in all 8 directions
+//depending on the mode, it will either flip or count flips
+//returns number of flips in a certain direction
 int flipIt(int t, int x, int y, int mode){
-	
+
 	//for a certain position, flips remembers the total number of flips in eight direction.
 	int nt= getOppositeSymbol(t);
 	int flips=0;
@@ -98,10 +99,10 @@ int flipIt(int t, int x, int y, int mode){
 		printf("Input coordinates for M are not valid!\n");
 		return -1; //return -1 is M is not valid coordinates
 	}
-	
+
 	//now, this M looks at eight directions
 	int m,n,step=0;
-	
+
 	//UP-Direction
 	m=x-1;n=y;step=0;/*m and n differ for each direction,because it's the 1st step towards that direction */ 
 	while(m>=0 && (board[m][n]==nt)){//consume all the opposite symbols
@@ -121,11 +122,11 @@ int flipIt(int t, int x, int y, int mode){
 			}
 		}
 	}//END_UP
-	
-	
+
+
 	//All the other direction are analogous.so no comments for them, the boundary condition
 	//and starting m and b differ in each case, as discussed above.
-    
+
     //DOWN
 	m=x+1;n=y;step=0;
 	while(m<N && (board[m][n]==nt)){ 
@@ -261,15 +262,14 @@ int flipIt(int t, int x, int y, int mode){
 			}
 		}
 	}//END_DOWNRIGHT
-	
-	
-	//bonus_mode stuff 
+
+	//bonus_mode stuff
 	if(mode == FLIPONLY && bonus_x==x && bonus_y==y){
 		int i; //cursor
 		int tog=1; // a flag
 		int temp=randGen(0,63);
 		puts("\n	**Congrats! You get a BONUS!!**");
-		while(tog){		
+		while(tog){
 			for(i =0 ; i< N*N; i++){
 				if(board[i/N][i%N]==2 && i==temp){
 					board[i/N][i%N]=t;
@@ -277,20 +277,17 @@ int flipIt(int t, int x, int y, int mode){
 					sleep(2);
 					tog=0;
 					break;
-			    }//end if	
-		     }//end for
-		 	 temp = (temp+1)%(N*N);
-         }   
-		 bonusmode=0;
-		 
-         sleep(2);
+				}//end if
+			}//end for
+			temp = (temp+1)%(N*N);
+		}
+		bonusmode=0;
+		sleep(2);
 	}
-	
 	return flips;
 }//end flipIt
- 
-                  
-//some helper function for printing                  
+
+//some helper function for printing
 char getTokenName(int t){
 	switch(t){
 		case X: return 'X';
@@ -301,7 +298,7 @@ char getTokenName(int t){
 }
 
 
-//clear() will clean up all the M's later on.
+//cleans up all the M's
 void clear(){
 //printf("0 1 2 3 4 5 6 7 \n");
 for(int i = 0; i<N ; i++){
@@ -312,32 +309,32 @@ for(int i = 0; i<N ; i++){
 	}
 }
 
-//move exist helper return one means quit this direction
+//moveExist helper that return 1 if the direction is invalid
 int meCrawler(int t, int step, int m, int n, int *signal){
 	//below: means these is a blank adjacent to t at this direction. which means this is a bad direction, return 1 so that we can quit in move exist for this particular direction.
-    if( (step==1) && ((getTokenName(board[m][n]) == '.')||( board[m][n] == M))) return 1;
-    //the below means that the there is a same symbol in this direction.
-    if(board[m][n]==t) return 1;
-    //after the first two if statement, the adjacent cell must be opposite to t. as desiired.
-    if( (step>1) && ((getTokenName(board[m][n]) == '.')|| ( board[m][n] == M)) ){
-	    board[m][n]=M;
-	    (*signal)=1;
+	if( (step==1) && ((getTokenName(board[m][n]) == '.')||( board[m][n] == M))) return 1;
+	//the below means that the there is a same symbol in this direction.
+	if(board[m][n]==t) return 1;
+	//after the first two if statement, the adjacent cell must be opposite to t. as desiired.
+	if( (step>1) && ((getTokenName(board[m][n]) == '.')|| ( board[m][n] == M)) ){
+		board[m][n]=M;
+		(*signal)=1;
 		return 1;
 	}
 	return 0;
 }
 
-//MoveExist returns 1 if there are moves Available for the current player(X or O). It returns 0 otherwise. 
+//returns 1 if there are moves available for the current player(X or O)
+//returns 0 otherwise
 int moveExist (int t){
 	int signal=0; //it will become 1 if there are move exist.
-	
 	//going through eight directions 
 	for(int i = 0; i<N ; i++){
 		for( int j =0; j<N; j++){
 			if(board[i][j]  == t){//proceeds only if symbol t. (t is either X or O. Bad variable name, I know..)
 				//m,n are index. 
 				int m,n,step;
-				
+
 				//direction up
 				m=i-1;
 				step=1; //step always starts from 1. step indicates steps from current cell to the original cell
@@ -346,8 +343,7 @@ int moveExist (int t){
 					step++;
 					m--;
 				}//end diretion up;
-				
-				
+
 				//The following sections are similar to the first case. 
 				//direction down
 				m=i+1;
@@ -358,7 +354,6 @@ int moveExist (int t){
 					m++;
 				}//end diretion down;
 
-               
 				//direction left
 				m=j-1;
 				step=1;
@@ -377,7 +372,7 @@ int moveExist (int t){
 					step++;
 					m++;
 				}//end diretion right;
-				
+
 				//direction upleft
 				m=i-1;
 				n=j-1;
@@ -388,7 +383,7 @@ int moveExist (int t){
 					m--;
 					n--;
 				}//end diretion upleft;
-				
+
 				//direction downleft
 				m=i+1;
 				n=j-1;
@@ -399,7 +394,7 @@ int moveExist (int t){
 					m++;
 					n--;
 				}//end diretion downleft;
-				
+
 				//direction downright
 				m=i+1;
 				n=j+1;
@@ -410,7 +405,7 @@ int moveExist (int t){
 					m++;
 					n++;
 				}//end diretion downright;
-				
+
 				//direction upright
 				m=i-1;
 				n=j+1;
@@ -421,13 +416,9 @@ int moveExist (int t){
 					m--;
 					n++;
 				}//end diretion upright;
-				
+
 			}//End of Eight Direction
 		}
-		
 	}
 	return signal;
 }//End moveExist
-
-
-
