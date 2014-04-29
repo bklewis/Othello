@@ -3,13 +3,10 @@
 #include "io.h"
 #include "makeMove.h"
 
-//Make it three versions, the first one is human vs human, the second version is computer v.s human
-//make sure that human does always start first/second. The last version is c v.s c  
-
 int main(){
 	srand(time(NULL));
     system("clear");
-	
+	//welcome message
 	printf("\n\nWelcome to Othello!\n\nYOOOOOOO!\n\n\n");
 	
 	initialize();
