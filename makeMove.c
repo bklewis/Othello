@@ -6,17 +6,18 @@
 #include <unistd.h>
 #define N 8
 
-int randGen( int min,  int max){/*randge is [min,max]. Have to called srand(time(0)) in main for randomness*/
+/*range is [min,max]. Have to called srand(time(0)) in main for randomness*/
+int randGen( int min,  int max){
 	double scaled = (double)rand()/RAND_MAX;
     return (max - min +1)*scaled + min;
 }
 
-int getOppositeSymbol(int t){//given t == X, it returns O, and vice versa.
+//given t == X, it returns O, and vice versa.
+int getOppositeSymbol(int t){
 	if(t==X) return O;
 	if(t==O) return X;
 	else return 0;
 }
-
 
 //computerMoveHelper: it looks at the board, for every M, store the number of token each M can flip.
 //It also updates variable count (number of M on the board currently.) and max: the max number of tokens
@@ -45,11 +46,12 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 //ConputerMove will determine where to move given the current player's symbol t
 void computerMove(int t){
 	puts("Computer is thinking ... like very hard ");
-	//sleep(2);
+
 	int i,j; // index used in double for loops 
 	int max=0,count=0;
 	int nt =getOppositeSymbol(t);
 	
+	//Normally this would never happen
 	if(nt==0){
 		printf("Computer Move helper input symbol is wrong, abort!\n");
 		exit(0);
@@ -60,7 +62,7 @@ void computerMove(int t){
 	//next the computer will pick the best M to flip
     //number is random, of range[1,count].
     int number = randGen(1,count);
-   // printf("        in function computerMove the number is: %d \n",number );
+  
     int tog=1;
     //assume there are 3 'M's on the board that can flip the most token. 
     //the following will loops through the board, pick the M only if number ==1
@@ -70,7 +72,7 @@ void computerMove(int t){
 			for(j=0; j<N; j++){
 				if(computeCount[i][j]==max){
 					if(number==1){
-					    //printf("\nThe computer decides to move i(verti): %d, j(Hori): %d \n", i, j);
+					    //flip and reset variables 
 						flipIt(t,i,j,FLIPONLY);
 						tog=0;
 						number=0;
@@ -81,8 +83,8 @@ void computerMove(int t){
 				}//if
 			}//for j
  	    }//for i
-	  
 	}//end while
+	//clear up M's on the board
 	clear(); 
 }//computerMove
 
@@ -261,10 +263,9 @@ int flipIt(int t, int x, int y, int mode){
 			}
 		}
 	}//END_DOWNRIGHT
-	//printf("flips is %d\n",flips);
 	
 	
-	
+	//bonus_mode stuff 
 	if(mode == FLIPONLY && bonus_x==x && bonus_y==y){
 		int i; //cursor
 		int tog=1; // a flag
@@ -283,9 +284,8 @@ int flipIt(int t, int x, int y, int mode){
 		 	 temp = (temp+1)%(N*N);
          }   
 		 bonusmode=0;
-		 //printf("The temp here is %d", temp);
+		 
          sleep(2);
-         //getchar();
 	}
 	
 	return flips;
@@ -348,7 +348,9 @@ int moveExist (int t){
 					step++;
 					m--;
 				}//end diretion up;
-
+				
+				
+				//The following sections are similar to the first case. 
 				//direction down
 				m=i+1;
 				step=1;
@@ -429,3 +431,6 @@ int moveExist (int t){
 	//printf("signal is: %d  ", signal);	
 	return signal;
 }//End moveExist
+
+
+
