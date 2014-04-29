@@ -39,7 +39,7 @@ void computerMoveHelper(int t, int nt, int *max, int *count){
 	}//end for i	
 	*max=maxy;
 	*count=county;
-	//printf("        max is : %d, count is: %d \n", maxy, county);
+	
 }
 
 
@@ -426,9 +426,8 @@ int moveExist (int t){
 				
 			}//End of Eight Direction
 		}
-		//printf("signal is: %d\n");
+		
 	}
-	//printf("signal is: %d  ", signal);	
 	return signal;
 }//End moveExist
 
