@@ -4,6 +4,7 @@
 #include "makeMove.h"
 
 int main(){
+	//prep for the game
 	srand(time(NULL));
 	system("clear");
 
@@ -14,11 +15,13 @@ int main(){
 	//get the mode from the user
 	int whichmode= getMode();
    	puts("in main");
+
 	//and run the game!
    	if(whichmode==1)chooseMode(HUMAN,COMPUTER);
    	else if(whichmode==2) chooseMode(HUMAN,HUMAN);
    	else if(whichmode==3) chooseMode(COMPUTER,COMPUTER);
-   	//something is wrong
+
+   	//error handling
 	else{
 		puts("GetMode functions return errors. Abort!");
 		exit(0);
@@ -41,7 +44,7 @@ void human(int turn){
 void computer(int turn){
      system("clear");
      print();
-     computerMove(turn); //it will say computer is thinking
+     computerMove(turn); //prints that computer is thinking
      sleep(1);
      system("clear");
      print();

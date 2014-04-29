@@ -14,13 +14,13 @@ char board[N][N];
 int computeCount[N][N];
 int legalMoves[N*N];
 
-int p1score; //player socre
+int p1score;	//player scores
 int p2score;
 int row;
 int col;
-int pass;
-int turn;
-int bonusmode;
+int pass;	//number of passes
+int turn;	//tracks turn
+int bonusmode;	//is bonusmode on?
 int bonus_x;
 int bonus_y;
 
