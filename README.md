@@ -22,7 +22,7 @@ sandwiched between the new token and a "base" token (any of the current
 player's tokens already on the board).  There can be no empty spaces in the
 squares between the new and base tokens.  All of the tokens between the new
 and base tokens are then flipped to the current player's symbol, and the turn
-is over.   If a player cannot place a token in a way that meets these
+is over.  If a player cannot place a token in a way that meets these
 conditions, their turn is passed and the next player may move.  If neither
 player can make a move, no matter how many tokens are on the board, the game
 is over.  The winner is the one with the most tokens with their symbol on the board
@@ -31,8 +31,7 @@ when the game ends.
 Starting a Game: 
 
 When you start a game you will be prompted to choose one of three options: (1) Human vs. Computer, (2) Human vs. Human, or (3) Computer vs. Computer
-Choose mode (1) to play against the computer's AI or mode (2) to play against a friend.  Choose mode (3) to watch the computer play itself!
-The game board starts with the central four spaces taken- two by X and two by O.
-The first player will be randomly selected at the start of each game.
+Choose mode (1) to play against the computer's AI or mode (2) to play against a friend.  Choose mode (3) to watch the computer play itself!  
+The first player will be randomly selected at the start of each game.  
 
 Enjoy the game!
