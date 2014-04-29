@@ -23,3 +23,26 @@ The first player will be randomly selected at the start of each game.
 
 
 Enjoy the game!
+
+
+Othello is a two-person game played with 64 tokens on an eight-by-eight grid.  
+Each token has two sides, X and O, each of which represents a player.  The goal 
+of the game is to have more tokens of your mark than your opponent's mark on 
+the grid by the end of the game.
+
+To begin, the central four squares of the board will be filled  with four tokens:
+O on the the upper left and bottom right corners, and X on the upper right and 
+bottom left corners. 
+
+To make a move, a player must place a token of their color on an empty space 
+ajacent to a token of the opponent's color (horizontally, vertically, or 
+diagonally) in such a way that one or more of the opponent's tokens are 
+sandwiched between the new token and a "base" token (any of the current 
+player's tokens already on the board).  There can be no empty spaces in the 
+squares between the new and base tokens.  All of the tokens between the new 
+and base tokens are then flipped to the current player's color, and the turn 
+is over.   If a player cannot place a token in a way that meets these 
+conditions, their turn is passed and the next player may move.  If neither 
+player can make a move, no matter how many tokens are on the board, the game 
+is over.  The winner is the one with the most token in their color on the board 
+when the game ends.
