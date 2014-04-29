@@ -14,4 +14,4 @@ io.o: io.c
 	gcc -c io.c -std=c99
 
 clean:
-	rm -rf *o
+	rm -rf *o Othello
