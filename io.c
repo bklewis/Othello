@@ -2,13 +2,22 @@
 #include "main.h"
 #include "makeMove.h"
 
+//COLORS! to use then, do   printf( RED "whatever you want print" RESET );
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+#define RESET   "\x1b[0m"
+
 //prints the board and simultaneously keeps score
 void print() {
         int i, j;
         char rows[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
 	p1score=p2score=0;
 
-	puts("\n	OTHELLO \n");
+	puts("\n	OTHELLO \n" );
 	if(turn ==X) puts("Player 1 is playing (X):");
 	else puts("Player 2 is playing (O):");
         printf("\n    1 2 3 4 5 6 7 8\n   -----------------\n");
@@ -18,10 +27,13 @@ void print() {
                         if (j != 7) {
                         	//do the scorekeeping at the same time
                         	if(board[i][j]==X) p1score++;
-				else if(board[i][j]==O) p2score++;
-                            	printf("%c ", getTokenName(board[i][j]));
-                        }else {
-                                printf("%c |",getTokenName(board[i][j]));
+						else if(board[i][j]==O) p2score++;
+							if(board[i][j]==X) printf( "%c ", getTokenName(board[i][j])); 
+                            else if(board[i][j]==O) printf(RED "%c " RESET, getTokenName(board[i][j])); 
+                            else if(board[i][j]==M) printf(BLUE "%c " RESET, getTokenName(board[i][j])); 
+                            else printf("%c ", getTokenName(board[i][j])); 
+                		}else {
+                            printf( "%c |" ,getTokenName(board[i][j]));
                         }
                 }
                 printf("\n");
