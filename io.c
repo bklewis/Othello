@@ -24,19 +24,20 @@ void print() {
         for (i = 0; i < 8; i++) {
                 printf("%c | ", rows[i]);
                 for (j = 0; j < 8; j++) {
-                        if (j != 7) {
+                        
                         	//do the scorekeeping at the same time
                         	if(board[i][j]==X) p1score++;
-						else if(board[i][j]==O) p2score++;
+							else if(board[i][j]==O) p2score++;
+							
+							//Board
 							if(board[i][j]==X) printf( "%c ", getTokenName(board[i][j])); 
                             else if(board[i][j]==O) printf(RED "%c " RESET, getTokenName(board[i][j])); 
                             else if(board[i][j]==M) printf(BLUE "%c " RESET, getTokenName(board[i][j])); 
                             else printf("%c ", getTokenName(board[i][j])); 
-                		}else {
-                            printf( "%c |" ,getTokenName(board[i][j]));
-                        }
+                		   }
+                		   
                 }
-                printf("\n");
+                printf("| \n");
         }
         printf("   -----------------\n\n");
 	printf("Player 1 (X) Score: %d \nPlayer 2 (O) Score: %d\n\n--------------------\n", p1score, p2score);
