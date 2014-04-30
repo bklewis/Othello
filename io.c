@@ -36,7 +36,7 @@ void print() {
                             else printf("%c ", getTokenName(board[i][j])); 
                 		   }
                 		   
-                }
+                //}
                 printf("| \n");
         }
         printf("   -----------------\n\n");
