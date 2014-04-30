@@ -97,9 +97,9 @@ int getMode(){
 	}
 
 	//Prompt 2
-	if(flag2)printf("\nBonus mode runs a special game that involves a hidden 'bonus' tile.\n"
-	"When the tile is played upon by one player, it acts as a normal token, but additionally\n"
-	"flips one of the opponent's tiles (chosen at random) to the symbol of the player who hit the bonus.\n"
+	if(flag2)printf("\nBonus mode runs a special game that involves a hidden 'bonus' square.\n"
+	"When the tile is played upon by one player, it acts as a normal token, \nbut additionally "
+	"flips one of the opponent's tokens (chosen at random) \nto the symbol of the player who hit the bonus.\n"
 	"\nDo you want to try BONUS MODE? [y/n]: ");
 
 	while(flag2){

@@ -332,8 +332,8 @@ int moveExist (int t){
 
 				//direction up
 				m=i-1;
-				step=1; //step always starts from 1. step indicates steps from current cell to the original cell
-				while(m>=0){ // <--this condition test for boundary
+				step=1; //step always starts from 1, and indicates steps from current cell to the original cell
+				while(m>=0){ // <--this condition tests for boundary
 					if(meCrawler(t,step,m,j,&signal)) break;
 					step++;
 					m--;
@@ -353,7 +353,6 @@ int moveExist (int t){
 				m=j-1;
 				step=1;
 				while(m>=0){
-					//printf("token is: %c , step is %d\n",board step);
 					if(meCrawler(t,step,i,m,&signal)) break;
 					step++;
 					m--;
