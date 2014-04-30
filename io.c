@@ -30,9 +30,9 @@ void print() {
 							else if(board[i][j]==O) p2score++;
 							
 							//Board
-							if(board[i][j]==X) printf( "%c ", getTokenName(board[i][j])); 
-                            else if(board[i][j]==O) printf(RED "%c " RESET, getTokenName(board[i][j])); 
-                            else if(board[i][j]==M) printf(BLUE "%c " RESET, getTokenName(board[i][j])); 
+							if(board[i][j]==X) printf(YELLOW "%c " RESET, getTokenName(board[i][j])); 
+                            else if(board[i][j]==O) printf(CYAN "%c " RESET, getTokenName(board[i][j])); 
+                            else if(board[i][j]==M) printf(GREEN "%c " RESET, getTokenName(board[i][j])); 
                             else printf("%c ", getTokenName(board[i][j])); 
                 		   }
                 		   
