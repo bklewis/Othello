@@ -2,7 +2,7 @@
 #include "main.h"
 #include "makeMove.h"
 
-//COLORS to use then, do   printf( RED "whatever you want print" RESET );
+//COLORS! to use then, do   printf( RED "whatever you want print" RESET );
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define YELLOW  "\x1b[33m"
@@ -31,12 +31,12 @@ void print() {
 							
 							//Board
 							if(board[i][j]==X) printf( "%c ", getTokenName(board[i][j])); 
-                            else if(board[i][j]==O) printf( "%c " , getTokenName(board[i][j])); 
-                            else if(board[i][j]==M) printf( "%c " , getTokenName(board[i][j])); 
+                            else if(board[i][j]==O) printf(RED "%c " RESET, getTokenName(board[i][j])); 
+                            else if(board[i][j]==M) printf(BLUE "%c " RESET, getTokenName(board[i][j])); 
                             else printf("%c ", getTokenName(board[i][j])); 
                 		   }
                 		   
-                //}
+               // }
                 printf("| \n");
         }
         printf("   -----------------\n\n");
