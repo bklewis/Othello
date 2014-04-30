@@ -20,24 +20,21 @@ void print() {
 	puts("\n	OTHELLO \n" );
 	if(turn ==X) puts("Player 1 is playing (X):");
 	else puts("Player 2 is playing (O):");
-        printf("\n    1 2 3 4 5 6 7 8\n   -----------------\n");
-        for (i = 0; i < 8; i++) {
-                printf("%c | ", rows[i]);
-                for (j = 0; j < 8; j++) {
-                        
-                        	//do the scorekeeping at the same time
-                        	if(board[i][j]==X) p1score++;
-							else if(board[i][j]==O) p2score++;
-							
-							//Board
-							if(board[i][j]==X) printf(YELLOW "%c " RESET, getTokenName(board[i][j])); 
-                            else if(board[i][j]==O) printf(CYAN "%c " RESET, getTokenName(board[i][j])); 
-                            else if(board[i][j]==M) printf(GREEN "%c " RESET, getTokenName(board[i][j])); 
-                            else printf("%c ", getTokenName(board[i][j])); 
-                		   }
-                		   
-               // }
-                printf("| \n");
+	printf("\n    1 2 3 4 5 6 7 8\n   -----------------\n");
+	for (i = 0; i < 8; i++) {
+		printf("%c | ", rows[i]);
+		for (j = 0; j < 8; j++) {
+			//do the scorekeeping at the same time
+			if(board[i][j]==X) p1score++;
+			else if(board[i][j]==O) p2score++;
+
+			//Board
+			if(board[i][j]==X) printf(YELLOW "%c " RESET, getTokenName(board[i][j])); 
+			else if(board[i][j]==O) printf(CYAN "%c " RESET, getTokenName(board[i][j])); 
+			else if(board[i][j]==M) printf(GREEN "%c " RESET, getTokenName(board[i][j])); 
+			else printf("%c ", getTokenName(board[i][j])); 
+		}
+        	printf("| \n");
         }
         printf("   -----------------\n\n");
 	printf("Player 1 (X) Score: %d \nPlayer 2 (O) Score: %d\n\n--------------------\n", p1score, p2score);
@@ -80,12 +77,12 @@ int getMode(){
    	int num=0;
 	char letter=0;
 	int res=0; //temp result holder
-    
+
 	if(flag1)printf("Please select a mode:\n"
 	"    1 -> Human vs. Computer\n"
 	"    2 -> Human vs. Human\n"
 	"    3 -> Computer vs. Computer\n");
-	
+
 	while(flag1){
 		//this checks 1-3
      		fgets(str, sizeof(str), stdin);//get line
